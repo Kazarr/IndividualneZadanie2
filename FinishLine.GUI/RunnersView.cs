@@ -24,6 +24,7 @@ namespace FinishLine
             countryBindingSource.DataSource = Core.Repository.Load.LoadOrderedCountries("countries.csv");
             RunnerViewModel = new RunnerViewModel();
 
+
         }
 
         private void gridRunners_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
@@ -50,17 +51,18 @@ namespace FinishLine
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            for(int i = 0; i < gridRunners.Columns.Count; i++)
+
+            for(int i = 0; i < gridRunners.RowCount-1; i++)
             {
-                for(int j = 0; j < gridRunners.RowCount; j++)
-                {
-                    RunnerViewModel.Runners.Add((int)gridRunners[0, j].Value, 
-                        Factory.CreateRunner((string)gridRunners[i,j].Value, 
-                        (Country)gridRunners[i, j].Value, 
-                        (int)gridRunners[i, j].Value, 
-                        (string)gridRunners[i, j].Value));
-                    //RunnerViewModel.Runners.Add(gridRunners.Columns[0], Factory.CreateRunner(gridRunners.Columns[0]., gridRunners.Columns[1], gridRunners.Columns[2], gridRunners.Columns[3]))
-                }
+                //int id = int.Parse((string)gridRunners[0, i].Value);
+                //int age = int.Parse((string)gridRunners[0, i].Value);
+                Runner r = Factory.CreateRunner(int.Parse((string)gridRunners[0, i].Value), 
+                    (string)gridRunners[1, i].Value, 
+                    (Country)countryBindingSource.Current,
+                    int.Parse((string)gridRunners[3, i].Value), 
+                    (string)gridRunners[4, i].Value);
+                RunnerViewModel.Runners.Add(int.Parse((string)gridRunners[0, i].Value), r);
+                       
                 
             }
             

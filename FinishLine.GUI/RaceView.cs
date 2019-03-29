@@ -17,7 +17,6 @@ namespace FinishLine
         public RaceView()
         {
             InitializeComponent();
-            RaceViewModel = new RaceViewModel();
         }
 
         private void trackToolStripMenuItem_Click(object sender, EventArgs e)

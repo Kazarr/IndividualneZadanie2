@@ -10,5 +10,10 @@ namespace FinishLine.Core
     {
         public Race Race { get; set; }
 
+
+        public RaceViewModel(Dictionary<int, Runner> runners, int lapCount, int reward)
+        {
+            Race = Factory.Factory.CreateRace(runners, lapCount, reward);
+        }
     }
 }

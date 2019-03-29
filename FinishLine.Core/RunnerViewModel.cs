@@ -12,7 +12,9 @@ namespace FinishLine.Core
 
         public RunnerViewModel()
         {
-
+            Runners = new Dictionary<int, Runner>();
+            //int id, string name, Country country, int age, string sex
+            //Factory.Factory.CreateRunner(id, name, country, age, sex);
         }
     }
 }
