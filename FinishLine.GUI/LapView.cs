@@ -17,7 +17,7 @@ namespace FinishLine
         public LapView()
         {
             InitializeComponent();
-            LapViewModel = new LapViewModel();
+            //LapViewModel = new LapViewModel();
         }
 
         private void btnSave_Click(object sender, EventArgs e)

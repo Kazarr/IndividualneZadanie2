@@ -16,15 +16,25 @@ namespace FinishLine
     public partial class RunnersView : Form
     {
         public RunnerViewModel RunnerViewModel { get; set; }
-        public RunnersView()
+        public RunnersView(RunnerViewModel runnerViewModel)
         {
+            RunnerViewModel = runnerViewModel;
             InitializeComponent();
             //RunnerViewModel = new RunnerViewModel();
             
             countryBindingSource.DataSource = Core.Repository.Load.LoadOrderedCountries("countries.csv");
-            //RunnerViewModel = new RunnerViewModel();
+        }
 
-
+        private void FillGrid()
+        {
+            if (RunnerViewModel.Runners.Count <= 0)
+            {
+                for(int i = 0; i < RunnerViewModel.Runners.Count; i++)
+                {
+                    gridRunners[0,i] = RunnerViewModel.Runners
+                }
+                
+            }
         }
 
         private void gridRunners_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)

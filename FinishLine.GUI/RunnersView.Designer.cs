@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gridRunners = new System.Windows.Forms.DataGridView();
+            this.countryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Country = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.countryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Age = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridRunners)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -57,37 +57,9 @@
             this.gridRunners.TabIndex = 0;
             this.gridRunners.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.gridRunners_CellValidating);
             // 
-            // ID
-            // 
-            this.ID.HeaderText = "Id";
-            this.ID.Name = "ID";
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Name";
-            this.Name.Name = "Name";
-            // 
-            // Country
-            // 
-            this.Country.DataSource = this.countryBindingSource;
-            this.Country.DisplayMember = "EnglishShortName";
-            this.Country.HeaderText = "Country";
-            this.Country.Name = "Country";
-            this.Country.ValueMember = "EnglishShortName";
-            // 
             // countryBindingSource
             // 
             this.countryBindingSource.DataSource = typeof(FinishLine.Core.Country);
-            // 
-            // Age
-            // 
-            this.Age.HeaderText = "Age";
-            this.Age.Name = "Age";
-            // 
-            // Sex
-            // 
-            this.Sex.HeaderText = "Sex";
-            this.Sex.Name = "Sex";
             // 
             // btnSave
             // 
@@ -108,6 +80,39 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "Id";
+            this.ID.HeaderText = "Id";
+            this.ID.Name = "ID";
+            // 
+            // Name
+            // 
+            this.Name.DataPropertyName = "Name";
+            this.Name.HeaderText = "Name";
+            this.Name.Name = "Name";
+            // 
+            // Country
+            // 
+            this.Country.DataPropertyName = "Country";
+            this.Country.DataSource = this.countryBindingSource;
+            this.Country.DisplayMember = "EnglishShortName";
+            this.Country.HeaderText = "Country";
+            this.Country.Name = "Country";
+            this.Country.ValueMember = "EnglishShortName";
+            // 
+            // Age
+            // 
+            this.Age.DataPropertyName = "Age";
+            this.Age.HeaderText = "Age";
+            this.Age.Name = "Age";
+            // 
+            // Sex
+            // 
+            this.Sex.DataPropertyName = "Sex";
+            this.Sex.HeaderText = "Sex";
+            this.Sex.Name = "Sex";
             // 
             // RunnersView
             // 

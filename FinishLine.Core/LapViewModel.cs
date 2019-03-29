@@ -12,7 +12,7 @@ namespace FinishLine.Core
 
         public LapViewModel(int lenght, DateTime date)
         {
-            Lap = Factory.Factory.CreateLap(lenght, date)
+            //Lap = Factory.Factory.CreateLap(lenght, date)
         }
     }
 }

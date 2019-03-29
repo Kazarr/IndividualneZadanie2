@@ -18,7 +18,7 @@ namespace FinishLine
         public RaceView()
         {
             InitializeComponent();
-
+            RunnerViewModel = new RunnerViewModel();
         }
 
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -28,12 +28,13 @@ namespace FinishLine
 
         private void runnersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (RunnersView runners = new RunnersView())
+            RunnersView runners = new RunnersView(RunnerViewModel);
+            using (runners)
             {
                 var dialogResult = runners.ShowDialog();
                 if(dialogResult == DialogResult.OK)
                 {
-                    RunnerViewModel.Runners
+                    
                 }
 
             }

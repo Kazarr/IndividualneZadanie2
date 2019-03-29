@@ -13,5 +13,6 @@ namespace FinishLine.Core
         {
             Runners = new Dictionary<int, Runner>();
         }
+
     }
 }
