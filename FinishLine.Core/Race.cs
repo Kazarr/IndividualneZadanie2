@@ -8,12 +8,12 @@ namespace FinishLine.Core
 {
     public class Race
     {
-        private List<Runner> _runners;
-        private Stack<Lap> _laps;
+        private Dictionary<int, Runner> _runners;
+        private Queue<Lap> _laps;
         private int _lapCount;
         private int _reward;
 
-        public Race(List<Runner> runners, Stack<Lap> laps, int lapCount, int reward)
+        public Race(Dictionary<int, Runner> runners, Queue<Lap> laps, int lapCount, int reward)
         {
             _runners = runners ?? throw new ArgumentNullException(nameof(runners));
             _laps = laps ?? throw new ArgumentNullException(nameof(laps));

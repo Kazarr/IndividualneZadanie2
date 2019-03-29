@@ -57,12 +57,12 @@ namespace FinishLine.Core
             _age = age;
             _sex = sex ?? throw new ArgumentNullException(nameof(sex));
         }
-
         private int GenerateId()
         {
             int ret = 0;
             Random r = new Random();
             return ret = r.Next(1, 1000);
         }
+
     }
 }
