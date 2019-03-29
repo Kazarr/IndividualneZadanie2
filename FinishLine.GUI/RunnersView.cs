@@ -23,15 +23,21 @@ namespace FinishLine
             //RunnerViewModel = new RunnerViewModel();
             
             countryBindingSource.DataSource = Core.Repository.Load.LoadOrderedCountries("countries.csv");
+            FillGrid();
         }
 
         private void FillGrid()
         {
-            if (RunnerViewModel.Runners.Count <= 0)
+            if (RunnerViewModel.Runners.Count >= 0)
             {
-                for(int i = 0; i < RunnerViewModel.Runners.Count; i++)
+                foreach(int i in RunnerViewModel.Runners.Keys)
                 {
-                    //gridRunners[0, i] = RunnerViewModel.Runners.Keys[i];
+                    int counter = 0;
+                    gridRunners[0, counter].Value = RunnerViewModel.Runners[i].Id;
+                    gridRunners[1, counter].Value = RunnerViewModel.Runners[i].Name;
+                    countryBindingSource.Add(RunnerViewModel.Runners[i].Country); // this is not working repair it !!!
+                    gridRunners[3, counter].Value = RunnerViewModel.Runners[i].Age;
+                    gridRunners[4, counter].Value = RunnerViewModel.Runners[i].Sex;
                 }
                 
             }

@@ -26,6 +26,12 @@ namespace FinishLine.Core
         /// Return current lap of runner;
         /// </summary>
         public int Lap { get; set; }
+        public int Id { get => _id; set => _id = value; }
+        public string Name { get => _name; set => _name = value; }
+        public Country Country { get => _country; set => _country = value; }
+        public int Age { get => _age; set => _age = value; }
+        public string Sex { get => _sex; set => _sex = value; }
+
         /// <summary>
         /// Make a new runner with generated ID
         /// </summary>
@@ -35,11 +41,11 @@ namespace FinishLine.Core
         /// <param name="sex">Sex of the runner</param>
         public Runner(string name, Country country, int age, string sex)
         {
-            _id = GenerateId();
-            _name = name ?? throw new ArgumentNullException(nameof(name));
-            _country = country;
-            _age = age;
-            _sex = sex ?? throw new ArgumentNullException(nameof(sex));
+            Id = GenerateId();
+            Name = name ?? throw new ArgumentNullException(nameof(name));
+            Country = country;
+            Age = age;
+            Sex = sex ?? throw new ArgumentNullException(nameof(sex));
         }
         /// <summary>
         /// make a new runner with your ID
@@ -51,11 +57,11 @@ namespace FinishLine.Core
         /// <param name="sex">Sex of the runner</param>
         public Runner(int id, string name, Country country, int age, string sex)
         {
-            _id = id;
-            _name = name ?? throw new ArgumentNullException(nameof(name));
-            _country = country;
-            _age = age;
-            _sex = sex ?? throw new ArgumentNullException(nameof(sex));
+            Id = id;
+            Name = name ?? throw new ArgumentNullException(nameof(name));
+            Country = country;
+            Age = age;
+            Sex = sex ?? throw new ArgumentNullException(nameof(sex));
         }
         private int GenerateId()
         {
