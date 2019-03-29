@@ -33,11 +33,11 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.menuStripFile = new System.Windows.Forms.MenuStrip();
             this.trackToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.trackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runnersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.trackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.menuStripFile.SuspendLayout();
@@ -46,22 +46,22 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 168);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 96);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(387, 270);
+            this.dataGridView1.Size = new System.Drawing.Size(380, 342);
             this.dataGridView1.TabIndex = 1;
             // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(408, 168);
+            this.dataGridView2.Location = new System.Drawing.Point(415, 96);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(387, 270);
+            this.dataGridView2.Size = new System.Drawing.Size(380, 342);
             this.dataGridView2.TabIndex = 2;
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(158, 139);
+            this.btnStart.Location = new System.Drawing.Point(12, 27);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 3;
@@ -90,6 +90,13 @@
             this.trackToolStripMenuItem1.Size = new System.Drawing.Size(50, 20);
             this.trackToolStripMenuItem1.Text = "Menu";
             // 
+            // trackToolStripMenuItem
+            // 
+            this.trackToolStripMenuItem.Name = "trackToolStripMenuItem";
+            this.trackToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.trackToolStripMenuItem.Text = "Track";
+            this.trackToolStripMenuItem.Click += new System.EventHandler(this.trackToolStripMenuItem_Click);
+            // 
             // runnersToolStripMenuItem
             // 
             this.runnersToolStripMenuItem.Name = "runnersToolStripMenuItem";
@@ -115,13 +122,6 @@
             this.exitToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
-            // 
-            // trackToolStripMenuItem
-            // 
-            this.trackToolStripMenuItem.Name = "trackToolStripMenuItem";
-            this.trackToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.trackToolStripMenuItem.Text = "Track";
-            this.trackToolStripMenuItem.Click += new System.EventHandler(this.trackToolStripMenuItem_Click);
             // 
             // RaceView
             // 
