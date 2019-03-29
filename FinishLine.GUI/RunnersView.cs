@@ -19,10 +19,10 @@ namespace FinishLine
         public RunnersView()
         {
             InitializeComponent();
-            RunnerViewModel = new RunnerViewModel();
+            //RunnerViewModel = new RunnerViewModel();
             
             countryBindingSource.DataSource = Core.Repository.Load.LoadOrderedCountries("countries.csv");
-            RunnerViewModel = new RunnerViewModel();
+            //RunnerViewModel = new RunnerViewModel();
 
 
         }
@@ -51,7 +51,6 @@ namespace FinishLine
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
             for(int i = 0; i < gridRunners.RowCount-1; i++)
             {
                 //int id = int.Parse((string)gridRunners[0, i].Value);
@@ -62,10 +61,9 @@ namespace FinishLine
                     int.Parse((string)gridRunners[3, i].Value), 
                     (string)gridRunners[4, i].Value);
                 RunnerViewModel.Runners.Add(int.Parse((string)gridRunners[0, i].Value), r);
-                       
-                
             }
-            
+            DialogResult = DialogResult.OK;
+            Close();
         }
     }
 }

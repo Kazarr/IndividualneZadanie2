@@ -33,11 +33,14 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.menuStripFile = new System.Windows.Forms.MenuStrip();
             this.trackToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.trackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runnersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblLapLenght = new System.Windows.Forms.Label();
+            this.txtLapCount = new System.Windows.Forms.TextBox();
+            this.lblLapCount = new System.Windows.Forms.Label();
+            this.txtLapLenght = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.menuStripFile.SuspendLayout();
@@ -61,12 +64,13 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(12, 27);
+            this.btnStart.Location = new System.Drawing.Point(366, 67);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 3;
             this.btnStart.Text = "Start race";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // menuStripFile
             // 
@@ -81,7 +85,6 @@
             // trackToolStripMenuItem1
             // 
             this.trackToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.trackToolStripMenuItem,
             this.runnersToolStripMenuItem,
             this.loadToolStripMenuItem1,
             this.saveAsToolStripMenuItem1,
@@ -90,44 +93,73 @@
             this.trackToolStripMenuItem1.Size = new System.Drawing.Size(50, 20);
             this.trackToolStripMenuItem1.Text = "Menu";
             // 
-            // trackToolStripMenuItem
-            // 
-            this.trackToolStripMenuItem.Name = "trackToolStripMenuItem";
-            this.trackToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.trackToolStripMenuItem.Text = "Track";
-            this.trackToolStripMenuItem.Click += new System.EventHandler(this.trackToolStripMenuItem_Click);
-            // 
             // runnersToolStripMenuItem
             // 
             this.runnersToolStripMenuItem.Name = "runnersToolStripMenuItem";
-            this.runnersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.runnersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.runnersToolStripMenuItem.Text = "Runners";
             this.runnersToolStripMenuItem.Click += new System.EventHandler(this.runnersToolStripMenuItem_Click);
             // 
             // loadToolStripMenuItem1
             // 
             this.loadToolStripMenuItem1.Name = "loadToolStripMenuItem1";
-            this.loadToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.loadToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.loadToolStripMenuItem1.Text = "Load";
             // 
             // saveAsToolStripMenuItem1
             // 
             this.saveAsToolStripMenuItem1.Name = "saveAsToolStripMenuItem1";
-            this.saveAsToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.saveAsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.saveAsToolStripMenuItem1.Text = "Save as...";
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
+            // 
+            // lblLapLenght
+            // 
+            this.lblLapLenght.AutoSize = true;
+            this.lblLapLenght.Location = new System.Drawing.Point(9, 24);
+            this.lblLapLenght.Name = "lblLapLenght";
+            this.lblLapLenght.Size = new System.Drawing.Size(61, 13);
+            this.lblLapLenght.TabIndex = 5;
+            this.lblLapLenght.Text = "Lap Lenght";
+            // 
+            // txtLapCount
+            // 
+            this.txtLapCount.Location = new System.Drawing.Point(76, 21);
+            this.txtLapCount.Name = "txtLapCount";
+            this.txtLapCount.Size = new System.Drawing.Size(100, 20);
+            this.txtLapCount.TabIndex = 6;
+            // 
+            // lblLapCount
+            // 
+            this.lblLapCount.AutoSize = true;
+            this.lblLapCount.Location = new System.Drawing.Point(9, 47);
+            this.lblLapCount.Name = "lblLapCount";
+            this.lblLapCount.Size = new System.Drawing.Size(56, 13);
+            this.lblLapCount.TabIndex = 7;
+            this.lblLapCount.Text = "Lap Count";
+            // 
+            // txtLapLenght
+            // 
+            this.txtLapLenght.Location = new System.Drawing.Point(75, 44);
+            this.txtLapLenght.Name = "txtLapLenght";
+            this.txtLapLenght.Size = new System.Drawing.Size(100, 20);
+            this.txtLapLenght.TabIndex = 8;
             // 
             // RaceView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(807, 450);
+            this.Controls.Add(this.txtLapLenght);
+            this.Controls.Add(this.lblLapCount);
+            this.Controls.Add(this.txtLapCount);
+            this.Controls.Add(this.lblLapLenght);
             this.Controls.Add(this.menuStripFile);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.dataGridView2);
@@ -154,7 +186,10 @@
         private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem trackToolStripMenuItem;
+        private System.Windows.Forms.Label lblLapLenght;
+        private System.Windows.Forms.TextBox txtLapCount;
+        private System.Windows.Forms.Label lblLapCount;
+        private System.Windows.Forms.TextBox txtLapLenght;
     }
 }
 

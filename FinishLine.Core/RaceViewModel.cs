@@ -15,5 +15,10 @@ namespace FinishLine.Core
         {
             Race = Factory.Factory.CreateRace(runners, lapCount, reward, finishedRunners, date, lapLenght);
         }
+
+        public void RaceStart()
+        {
+
+        }
     }
 }

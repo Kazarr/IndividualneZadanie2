@@ -14,18 +14,11 @@ namespace FinishLine
     public partial class RaceView : Form
     {
         public RaceViewModel RaceViewModel { get; set; }
+        public RunnerViewModel RunnerViewModel { get; set; }
         public RaceView()
         {
             InitializeComponent();
-            RaceViewModel = new RaceViewModel()
-        }
 
-        private void trackToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            using(LapView laps = new LapView())
-            {
-                var dialogResult = laps.ShowDialog();
-            }
         }
 
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -38,7 +31,22 @@ namespace FinishLine
             using (RunnersView runners = new RunnersView())
             {
                 var dialogResult = runners.ShowDialog();
+                if(dialogResult == DialogResult.OK)
+                {
+                    RunnerViewModel.Runners
+                }
 
+            }
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+
+            //RaceViewModel = new RaceViewModel();
+            if (RunnerViewModel.Runners.Count >= 0)
+            {
+                txtLapCount.Enabled = false;
+                txtLapLenght.Enabled = false;
             }
         }
     }
