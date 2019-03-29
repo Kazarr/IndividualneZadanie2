@@ -11,13 +11,13 @@ using FinishLine.Core;
 
 namespace FinishLine
 {
-    public partial class Form1 : Form
+    public partial class RaceView : Form
     {
-        public Race Race { get; set; }
-        public Form1()
+        public RaceViewModel RaceViewModel { get; set; }
+        public RaceView()
         {
             InitializeComponent();
-            Race = new Race();
+            RaceViewModel = new RaceViewModel();
         }
 
         private void trackToolStripMenuItem_Click(object sender, EventArgs e)

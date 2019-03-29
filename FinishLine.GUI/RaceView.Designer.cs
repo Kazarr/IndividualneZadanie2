@@ -1,6 +1,6 @@
 ﻿namespace FinishLine
 {
-    partial class Form1
+    partial class RaceView
     {
         /// <summary>
         /// Required designer variable.
@@ -123,7 +123,7 @@
             this.trackToolStripMenuItem.Text = "Track";
             this.trackToolStripMenuItem.Click += new System.EventHandler(this.trackToolStripMenuItem_Click);
             // 
-            // Form1
+            // RaceView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -133,8 +133,8 @@
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.MainMenuStrip = this.menuStripFile;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "RaceView";
+            this.Text = "RaceView";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.menuStripFile.ResumeLayout(false);

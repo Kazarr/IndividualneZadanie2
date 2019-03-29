@@ -48,9 +48,12 @@
     <Compile Include="Factory\Factory.cs" />
     <Compile Include="Lap.cs" />
     <Compile Include="Race.cs" />
+    <Compile Include="RaceViewModel.cs" />
     <Compile Include="Repository\Load.cs" />
     <Compile Include="Runner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RunnerViewModel.cs" />
+    <Compile Include="LapViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

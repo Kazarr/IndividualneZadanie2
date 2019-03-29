@@ -1,6 +1,6 @@
 ﻿namespace FinishLine
 {
-    partial class TrackView
+    partial class LapView
     {
         /// <summary>
         /// Required designer variable.

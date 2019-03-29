@@ -13,12 +13,14 @@ namespace FinishLine
 {
     public partial class RunnersView : Form
     {
-        public Runner Runner { get; set; }
+        public RunnerViewModel RunnerViewModel { get; set; }
         public RunnersView()
         {
             InitializeComponent();
             gridRunners.Columns.Add("Id","Id");
             gridRunners.Columns.Add("Name", "Name");
+            RunnerViewModel = new RunnerViewModel();
+
         }
 
         private void gridRunners_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)

@@ -63,11 +63,11 @@
     <Compile Include="Subro.Controls.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TrackView.cs">
+    <Compile Include="LapView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TrackView.Designer.cs">
-      <DependentUpon>TrackView.cs</DependentUpon>
+    <Compile Include="LapView.Designer.cs">
+      <DependentUpon>LapView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="RaceView.resx">
       <DependentUpon>RaceView.cs</DependentUpon>
@@ -85,8 +85,8 @@
     <EmbeddedResource Include="RunnersView.resx">
       <DependentUpon>RunnersView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TrackView.resx">
-      <DependentUpon>TrackView.cs</DependentUpon>
+    <EmbeddedResource Include="LapView.resx">
+      <DependentUpon>LapView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

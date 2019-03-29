@@ -28,6 +28,10 @@ namespace FinishLine.Core.Factory
             Country ret = new Country(countyCode, slovakShortName, englishShortName, officialShortName);
             return ret;
         }
-
+        public static Lap CreateLap(int lenght, DateTime date)
+        {
+            Lap ret = new Lap(lenght, date);
+            return ret;
+        }
     }
 }
