@@ -46,17 +46,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="RaceView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="RaceView.Designer.cs">
+      <DependentUpon>RaceView.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RunnersView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RunnersView.Designer.cs">
+      <DependentUpon>RunnersView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Subro.Controls.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="TrackView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrackView.Designer.cs">
+      <DependentUpon>TrackView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="RaceView.resx">
+      <DependentUpon>RaceView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -67,6 +82,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RunnersView.resx">
+      <DependentUpon>RunnersView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrackView.resx">
+      <DependentUpon>TrackView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

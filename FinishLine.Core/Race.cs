@@ -1,26 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FinishLine.Core
 {
     public class Race
     {
         private Dictionary<int, Runner> _runners;
-        private Queue<Lap> _laps;
         private int _lapCount;
         private int _reward;
 
-        public Race(Dictionary<int, Runner> runners, Queue<Lap> laps, int lapCount, int reward)
+        public Dictionary<int, Runner> Runners { get => _runners; set => _runners = value; }
+        public int LapCount { get => _lapCount; set => _lapCount = value; }
+        public int Reward { get => _reward; set => _reward = value; }
+
+        public Race()
         {
-            _runners = runners ?? throw new ArgumentNullException(nameof(runners));
-            _laps = laps ?? throw new ArgumentNullException(nameof(laps));
-            _lapCount = lapCount;
-            _reward = reward;
         }
 
+        public Race(int lapCount, int reward)
+        {
+            LapCount = lapCount;
+            Reward = reward;
+        }
+
+        public Race(Dictionary<int, Runner> runners, int lapCount, int reward)
+        {
+            Runners = runners ?? throw new ArgumentNullException(nameof(runners));
+            LapCount = lapCount;
+            Reward = reward;
+        }
+        public void AddRunner(int Id, Runner runner)
+        {
+            Runners.Add(Id, runner);
+        }
+        public void RemoveRunner(int Id)
+        {
+            Runners.Remove(Id);
+        }
 
     }
 }
