@@ -35,6 +35,7 @@
             this.txtRunnersRewarded = new System.Windows.Forms.TextBox();
             this.lblReward = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtLapCount
@@ -87,7 +88,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(211, 144);
+            this.btnSave.Location = new System.Drawing.Point(242, 182);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 6;
@@ -95,11 +96,22 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // Track
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(12, 182);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 7;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // LapView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 179);
+            this.ClientSize = new System.Drawing.Size(329, 217);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblReward);
             this.Controls.Add(this.txtRunnersRewarded);
@@ -107,7 +119,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblLapCount);
             this.Controls.Add(this.txtLapCount);
-            this.Name = "Track";
+            this.Name = "LapView";
             this.Text = "Track";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -123,5 +135,6 @@
         private System.Windows.Forms.TextBox txtRunnersRewarded;
         private System.Windows.Forms.Label lblReward;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

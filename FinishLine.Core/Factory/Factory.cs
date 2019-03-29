@@ -23,6 +23,11 @@ namespace FinishLine.Core.Factory
             Race ret = new Race(runners, lapCount, reward);
             return ret;
         }
+        public static Race CreateRace(Dictionary<int,Runner> runners, int lapCount, int reward, Queue<Runner> finishedRunners, DateTime date, int lapLenght)
+        {
+            Race ret = new Race(runners, lapCount, reward, finishedRunners, date, lapLenght);
+            return ret;
+        }
         public static List<Country> CreateCountries(List<string> countyCode, List<string> slovakShortName, List<string> englishShortName, List<string> officialShortName)
         {
             List<Country> ret = new List<Country>(countyCode.Count);
