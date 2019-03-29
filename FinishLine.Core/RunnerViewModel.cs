@@ -10,5 +10,9 @@ namespace FinishLine.Core
     {
         public Dictionary<int, Runner> Runners { get; set; }
 
+        public RunnerViewModel()
+        {
+
+        }
     }
 }

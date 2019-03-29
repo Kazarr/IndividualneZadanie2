@@ -106,5 +106,13 @@ namespace FinishLine.Core.Repository
             }
             return ret;
         }
+        public static List<Country> LoadOrderedCountries(string path)
+        {
+            List<Country> ret = new List<Country>(250);
+            ret = LoadCoutries(path);
+            ret.Sort((x,y)=> x.EnglishShortName.CompareTo(y.EnglishShortName));
+            return ret;
+
+        }
     }
 }

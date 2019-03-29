@@ -19,7 +19,9 @@ namespace FinishLine
         public RunnersView()
         {
             InitializeComponent();
-            countryBindingSource.DataSource = Core.Repository.Load.LoadCoutries("countries.csv");
+            RunnerViewModel = new RunnerViewModel();
+            
+            countryBindingSource.DataSource = Core.Repository.Load.LoadOrderedCountries("countries.csv");
             RunnerViewModel = new RunnerViewModel();
 
         }
