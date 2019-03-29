@@ -10,7 +10,7 @@ namespace FinishLine.Core
     {
         private int _id;
         private string _name;
-        private Country country;
+        private Country _country;
         private int _age;
         private string _sex;
 

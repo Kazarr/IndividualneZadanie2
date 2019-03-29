@@ -23,9 +23,13 @@ namespace FinishLine.Core.Factory
             Race ret = new Race(runners, lapCount, reward);
             return ret;
         }
-        public static Country CreateCountry(string countyCode, string slovakShortName, string englishShortName, string officialShortName)
+        public static List<Country> CreateCountries(List<string> countyCode, List<string> slovakShortName, List<string> englishShortName, List<string> officialShortName)
         {
-            Country ret = new Country(countyCode, slovakShortName, englishShortName, officialShortName);
+            List<Country> ret = new List<Country>(countyCode.Count);
+            for (int i = 0; i < countyCode.Count; i++)
+            {
+                ret.Add(new Country(countyCode[i], slovakShortName[i], englishShortName[i], officialShortName[i]));
+            }
             return ret;
         }
         public static Lap CreateLap(int lenght, DateTime date)

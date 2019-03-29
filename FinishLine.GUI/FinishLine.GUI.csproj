@@ -88,6 +88,7 @@
     <EmbeddedResource Include="LapView.resx">
       <DependentUpon>LapView.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\FinishLine.Core.Country.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

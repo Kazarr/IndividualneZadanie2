@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FinishLine.Core;
+using FinishLine.Core.Factory;
+using FinishLine.Core.Repository;
 
 namespace FinishLine
 {
@@ -17,8 +19,7 @@ namespace FinishLine
         public RunnersView()
         {
             InitializeComponent();
-            gridRunners.Columns.Add("Id","Id");
-            gridRunners.Columns.Add("Name", "Name");
+            countryBindingSource.DataSource = Core.Repository.Load.LoadEnglishShortName(counpath);
             RunnerViewModel = new RunnerViewModel();
 
         }
@@ -27,7 +28,7 @@ namespace FinishLine
         {
             gridRunners.Rows[e.RowIndex].ErrorText = "";
             //int newInteger;
-            if (e.ColumnIndex == 0)
+            if (e.ColumnIndex == 0 || e.ColumnIndex == 3)
             {
                 int i;
                 if (gridRunners.Rows[e.RowIndex].IsNewRow) { return; }

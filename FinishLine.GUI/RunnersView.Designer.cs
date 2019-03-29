@@ -28,15 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gridRunners = new System.Windows.Forms.DataGridView();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.countryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Country = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Age = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridRunners)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gridRunners
             // 
             this.gridRunners.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridRunners.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Name,
+            this.Country,
+            this.Age,
+            this.Sex});
             this.gridRunners.Location = new System.Drawing.Point(13, 13);
             this.gridRunners.Name = "gridRunners";
             this.gridRunners.Size = new System.Drawing.Size(775, 372);
@@ -62,7 +76,39 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // Runners
+            // countryBindingSource
+            // 
+            this.countryBindingSource.DataSource = typeof(FinishLine.Core.Country);
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "Id";
+            this.ID.Name = "ID";
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Name";
+            this.Name.Name = "Name";
+            // 
+            // Country
+            // 
+            this.Country.DataSource = this.countryBindingSource;
+            this.Country.DisplayMember = "EnglishShortName";
+            this.Country.HeaderText = "Country";
+            this.Country.Name = "Country";
+            this.Country.ValueMember = "EnglishShortName";
+            // 
+            // Age
+            // 
+            this.Age.HeaderText = "Age";
+            this.Age.Name = "Age";
+            // 
+            // Sex
+            // 
+            this.Sex.HeaderText = "Sex";
+            this.Sex.Name = "Sex";
+            // 
+            // RunnersView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -70,9 +116,10 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.gridRunners);
-            this.Name = "Runners";
+            this.Name = "RunnersView";
             this.Text = "Runners";
             ((System.ComponentModel.ISupportInitialize)(this.gridRunners)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -82,5 +129,11 @@
         private System.Windows.Forms.DataGridView gridRunners;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.BindingSource countryBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Country;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Age;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sex;
     }
 }

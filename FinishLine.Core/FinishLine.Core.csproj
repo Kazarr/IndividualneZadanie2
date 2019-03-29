@@ -47,6 +47,11 @@
     <Compile Include="Country.cs" />
     <Compile Include="Factory\Factory.cs" />
     <Compile Include="Lap.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Race.cs" />
     <Compile Include="RaceViewModel.cs" />
     <Compile Include="Repository\Load.cs" />
@@ -56,8 +61,17 @@
     <Compile Include="LapViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="countries.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Country.datasource" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
