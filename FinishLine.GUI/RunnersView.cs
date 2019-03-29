@@ -47,5 +47,23 @@ namespace FinishLine
             DialogResult = DialogResult.Cancel;
             Close();
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            for(int i = 0; i < gridRunners.Columns.Count; i++)
+            {
+                for(int j = 0; j < gridRunners.RowCount; j++)
+                {
+                    RunnerViewModel.Runners.Add((int)gridRunners[0, j].Value, 
+                        Factory.CreateRunner((string)gridRunners[i,j].Value, 
+                        (Country)gridRunners[i, j].Value, 
+                        (int)gridRunners[i, j].Value, 
+                        (string)gridRunners[i, j].Value));
+                    //RunnerViewModel.Runners.Add(gridRunners.Columns[0], Factory.CreateRunner(gridRunners.Columns[0]., gridRunners.Columns[1], gridRunners.Columns[2], gridRunners.Columns[3]))
+                }
+                
+            }
+            
+        }
     }
 }

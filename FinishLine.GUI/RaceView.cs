@@ -22,7 +22,10 @@ namespace FinishLine
 
         private void trackToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            using(LapView laps = new LapView())
+            {
+                var dialogResult = laps.ShowDialog();
+            }
         }
 
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)

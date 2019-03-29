@@ -8,7 +8,7 @@ namespace FinishLine.Core
 {
     public class RunnerViewModel
     {
-        public Dictionary<int, Runner> Runners { get; set; }
+        public Dictionary<int, Runner> Runners { get; set; } //inicialize this!!!
 
         public RunnerViewModel()
         {
