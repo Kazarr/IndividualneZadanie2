@@ -116,7 +116,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.gridRunners);
-            this.Name = "RunnersView";
+            //this.Name = "RunnersView";
             this.Text = "Runners";
             ((System.ComponentModel.ISupportInitialize)(this.gridRunners)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource)).EndInit();

@@ -37,7 +37,7 @@ namespace FinishLine.Core
         {
             _id = GenerateId();
             _name = name ?? throw new ArgumentNullException(nameof(name));
-            this.country = country;
+            _country = country;
             _age = age;
             _sex = sex ?? throw new ArgumentNullException(nameof(sex));
         }
@@ -53,7 +53,7 @@ namespace FinishLine.Core
         {
             _id = id;
             _name = name ?? throw new ArgumentNullException(nameof(name));
-            this.country = country;
+            _country = country;
             _age = age;
             _sex = sex ?? throw new ArgumentNullException(nameof(sex));
         }
