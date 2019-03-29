@@ -31,7 +31,7 @@ namespace FinishLine
             {
                 for(int i = 0; i < RunnerViewModel.Runners.Count; i++)
                 {
-                    gridRunners[0,i] = RunnerViewModel.Runners
+                    //gridRunners[0, i] = RunnerViewModel.Runners.Keys[i];
                 }
                 
             }
