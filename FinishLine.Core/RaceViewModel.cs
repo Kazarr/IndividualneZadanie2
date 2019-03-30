@@ -11,9 +11,10 @@ namespace FinishLine.Core
         public Race Race { get; set; }
 
 
-        public RaceViewModel(Dictionary<int, Runner> runners, int lapCount, int reward, Queue<Runner> finishedRunners, DateTime date, int lapLenght)
+        public RaceViewModel(Dictionary<int, Runner> runners, int lapCount, int reward, DateTime date, int lapLenght)
         {
-            Race = Factory.Factory.CreateRace(runners, lapCount, reward, finishedRunners, date, lapLenght);
+            Race = Factory.Factory.CreateRace(runners, lapCount, reward, date, lapLenght);
+            Race.FinishedRunners = new Queue<Runner>();
         }
 
         public void RaceStart()

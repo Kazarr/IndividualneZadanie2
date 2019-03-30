@@ -40,15 +40,53 @@ namespace FinishLine
             }
         }
 
+        private bool ValidateIntInput(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            return e.Handled;
+        }
+        private int GetIntInput(string text)
+        {
+            if (text.Equals(""))
+            {
+                return 0;
+            }
+            return int.Parse(text);
+        }
         private void btnStart_Click(object sender, EventArgs e)
         {
-
-            //RaceViewModel = new RaceViewModel();
-            if (RunnerViewModel.Runners.Count >= 0)
+            DateTime dateTime = DateTime.Now;
+            lblTime.Text = dateTime.ToLongTimeString();
+            lblTime.Visible = true;
+            RaceViewModel = new RaceViewModel(RunnerViewModel.Runners,GetIntInput(txtLapCount.Text),GetIntInput(txtReward.Text),dateTime,GetIntInput(txtLapLenght.Text));
+            if (RunnerViewModel.Runners.Count > 0)
             {
                 txtLapCount.Enabled = false;
                 txtLapLenght.Enabled = false;
             }
+        }
+
+        private void txtReward_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidateIntInput(sender, e);
+        }
+        private void txtLapLenght_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidateIntInput(sender, e);
+        }
+        private void txtLapCount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidateIntInput(sender, e);
+        }
+        private void btnLapFinished_Click(object sender, EventArgs e)
+        {
+            int id = GetIntInput(txtRunnerNumber.Text);
+            gridLapOverview[0, gridLapOverview.RowCount].Value = id;
+            //gridLapOverview[1, gridLapOverview.RowCount].Value = RaceViewModel.Race.Runners
+
         }
     }
 }

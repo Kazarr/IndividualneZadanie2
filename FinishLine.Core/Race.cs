@@ -39,14 +39,12 @@ namespace FinishLine.Core
         public Race(Dictionary<int, Runner> runners, 
             int lapCount, 
             int reward, 
-            Queue<Runner> finishedRunners, 
             DateTime date, 
             int lapLenght) 
         {
             Runners = new Dictionary<int, Runner>();
             LapCount = lapCount;
             Reward = reward;
-            FinishedRunners = new Queue<Runner>();
             Date = new DateTime();
             LapLenght = lapLenght;
         }
