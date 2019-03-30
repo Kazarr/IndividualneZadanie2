@@ -25,7 +25,7 @@ namespace FinishLine.Core
         /// <summary>
         /// Return current lap of runner;
         /// </summary>
-        public int Lap { get; set; }
+        public int FinishedLaps { get; set; }
         public int Id { get => _id; set => _id = value; }
         public string Name { get => _name; set => _name = value; }
         public Country Country { get => _country; set => _country = value; }

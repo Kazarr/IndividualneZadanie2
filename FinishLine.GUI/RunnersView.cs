@@ -28,37 +28,18 @@ namespace FinishLine
 
         private void FillGrid()
         {
-            if (RunnerViewModel.Runners.Count >= 0)
+            if (RunnerViewModel.Runners.Count > 0)
             {
-                foreach(int i in RunnerViewModel.Runners.Keys)
+                int counter = 0;
+                foreach (int i in RunnerViewModel.Runners.Keys)
                 {
-                    int counter = 0;
-                    //gridRunners[0, counter].Value = RunnerViewModel.Runners[i].Id;
-                    //gridRunners[1, counter].Value = RunnerViewModel.Runners[i].Name;
-                    ////countryBindingSource.Insert(i, RunnerViewModel.Runners[i].Country);
-                    ////countryBindingSource[i] = RunnerViewModel.Runners[i].Country;
-
-                    //gridRunners.Rows[0].Cells[2].Value = RunnerViewModel.Runners[i].Country.EnglishShortName;
-
-                    ////gridRunners[2, counter].Value = ((DataGridViewComboBoxCell)gridRunners.Rows[0].Cells[2]).Items.IndexOf(RunnerViewModel.Runners[i].Country);
-
-                    ////string SelectedText = Convert.ToString((((DataGridViewComboBoxCell)gridRunners.Rows[0].Cells[2]).Items.IndexOf() as DataGridViewComboBoxCell).FormattedValue.ToString());
-                    ////int SelectedVal = Convert.ToInt32(gridRunners.Rows[0].Cells[2].Value);
-
-                    ////GetDataGridViewComboBoxCellSelectedIndex(gridRunners.Rows[0].Cells[2]);
-
-                    ////gridRunners.Rows[counter].Cells[2].Value = 
-                    ////gridRunners[2, counter].Selected = RunnerViewModel.Runners[i].Country.EnglishShortName;
-                    ////countryBindingSource.Add(RunnerViewModel.Runners[i].Country); // this is not working repair it !!!
-                    //gridRunners[3, counter].Value = RunnerViewModel.Runners[i].Age;
-                    //gridRunners[4, counter].Value = RunnerViewModel.Runners[i].Sex;
-                    gridRunners.Rows.Add(gridRunners[0, counter].Value = RunnerViewModel.Runners[i].Id,
-                                        gridRunners[1, counter].Value = RunnerViewModel.Runners[i].Name,
-                                        gridRunners.Rows[0].Cells[2].Value = RunnerViewModel.Runners[i].Country.EnglishShortName,
-                                        gridRunners[3, counter].Value = RunnerViewModel.Runners[i].Age,
-                                        gridRunners[4, counter].Value = RunnerViewModel.Runners[i].Sex);
+                    gridRunners.Rows.Add(RunnerViewModel.Runners[i].Id,
+                                        RunnerViewModel.Runners[i].Name,
+                                        RunnerViewModel.Runners[i].Country.EnglishShortName,
+                                        RunnerViewModel.Runners[i].Age,
+                                        RunnerViewModel.Runners[i].Sex);
+                    //dataGridView1.Rows[0].Cells[1].Value = "second";
                     counter++;
-                    
                 }
                 
             }

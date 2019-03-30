@@ -30,7 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gridLapOverview = new System.Windows.Forms.DataGridView();
+            this.RunnerId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RunnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RunnerCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FinishedLaps = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LapTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gridRaceOverview = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FinalPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FinalRunnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BestLaptime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RaceTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnStart = new System.Windows.Forms.Button();
             this.menuStripFile = new System.Windows.Forms.MenuStrip();
             this.trackToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,20 +57,9 @@
             this.txtReward = new System.Windows.Forms.TextBox();
             this.lblCurrentTime = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FinalPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FinalRunnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BestLaptime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RaceTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRunnerFinished = new System.Windows.Forms.Label();
             this.txtRunnerNumber = new System.Windows.Forms.TextBox();
             this.btnLapFinished = new System.Windows.Forms.Button();
-            this.RunnerId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RunnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RunnerCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LapTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GrouperLap = new Subro.Controls.DataGridViewGrouper(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridLapOverview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridRaceOverview)).BeginInit();
@@ -78,13 +78,53 @@
             this.Position,
             this.RunnerName,
             this.RunnerCountry,
-            this.Lap,
+            this.FinishedLaps,
             this.LapTime});
             this.gridLapOverview.Location = new System.Drawing.Point(14, 166);
             this.gridLapOverview.Name = "gridLapOverview";
             this.gridLapOverview.ReadOnly = true;
             this.gridLapOverview.Size = new System.Drawing.Size(421, 272);
             this.gridLapOverview.TabIndex = 1;
+            // 
+            // RunnerId
+            // 
+            this.RunnerId.HeaderText = "Runner number";
+            this.RunnerId.Name = "RunnerId";
+            this.RunnerId.ReadOnly = true;
+            this.RunnerId.Width = 33;
+            // 
+            // Position
+            // 
+            this.Position.HeaderText = "Position";
+            this.Position.Name = "Position";
+            this.Position.ReadOnly = true;
+            this.Position.Width = 25;
+            // 
+            // RunnerName
+            // 
+            this.RunnerName.HeaderText = "Runner name";
+            this.RunnerName.Name = "RunnerName";
+            this.RunnerName.ReadOnly = true;
+            // 
+            // RunnerCountry
+            // 
+            this.RunnerCountry.HeaderText = "Runner country";
+            this.RunnerCountry.Name = "RunnerCountry";
+            this.RunnerCountry.ReadOnly = true;
+            this.RunnerCountry.Width = 50;
+            // 
+            // FinishedLaps
+            // 
+            this.FinishedLaps.HeaderText = "FinishedLaps";
+            this.FinishedLaps.Name = "FinishedLaps";
+            this.FinishedLaps.ReadOnly = true;
+            this.FinishedLaps.Width = 50;
+            // 
+            // LapTime
+            // 
+            this.LapTime.HeaderText = "FinishedLaps time";
+            this.LapTime.Name = "LapTime";
+            this.LapTime.ReadOnly = true;
             // 
             // gridRaceOverview
             // 
@@ -103,6 +143,38 @@
             this.gridRaceOverview.ReadOnly = true;
             this.gridRaceOverview.Size = new System.Drawing.Size(403, 272);
             this.gridRaceOverview.TabIndex = 2;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Runner number";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 33;
+            // 
+            // FinalPosition
+            // 
+            this.FinalPosition.HeaderText = "Position";
+            this.FinalPosition.Name = "FinalPosition";
+            this.FinalPosition.ReadOnly = true;
+            this.FinalPosition.Width = 25;
+            // 
+            // FinalRunnerName
+            // 
+            this.FinalRunnerName.HeaderText = "Runner name";
+            this.FinalRunnerName.Name = "FinalRunnerName";
+            this.FinalRunnerName.ReadOnly = true;
+            // 
+            // BestLaptime
+            // 
+            this.BestLaptime.HeaderText = "Best lap time";
+            this.BestLaptime.Name = "BestLaptime";
+            this.BestLaptime.ReadOnly = true;
+            // 
+            // RaceTime
+            // 
+            this.RaceTime.HeaderText = "Race time";
+            this.RaceTime.Name = "RaceTime";
+            this.RaceTime.ReadOnly = true;
             // 
             // btnStart
             // 
@@ -166,9 +238,9 @@
             this.lblLapLenght.AutoSize = true;
             this.lblLapLenght.Location = new System.Drawing.Point(9, 24);
             this.lblLapLenght.Name = "lblLapLenght";
-            this.lblLapLenght.Size = new System.Drawing.Size(61, 13);
+            this.lblLapLenght.Size = new System.Drawing.Size(66, 13);
             this.lblLapLenght.TabIndex = 5;
-            this.lblLapLenght.Text = "Lap Lenght";
+            this.lblLapLenght.Text = "Laps Lenght";
             // 
             // txtLapCount
             // 
@@ -183,9 +255,9 @@
             this.lblLapCount.AutoSize = true;
             this.lblLapCount.Location = new System.Drawing.Point(9, 50);
             this.lblLapCount.Name = "lblLapCount";
-            this.lblLapCount.Size = new System.Drawing.Size(56, 13);
+            this.lblLapCount.Size = new System.Drawing.Size(61, 13);
             this.lblLapCount.TabIndex = 7;
-            this.lblLapCount.Text = "Lap Count";
+            this.lblLapCount.Text = "Laps Count";
             // 
             // txtLapLenght
             // 
@@ -231,38 +303,6 @@
             this.lblTime.Text = "label1";
             this.lblTime.Visible = false;
             // 
-            // Id
-            // 
-            this.Id.HeaderText = "Runner number";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 33;
-            // 
-            // FinalPosition
-            // 
-            this.FinalPosition.HeaderText = "Position";
-            this.FinalPosition.Name = "FinalPosition";
-            this.FinalPosition.ReadOnly = true;
-            this.FinalPosition.Width = 25;
-            // 
-            // FinalRunnerName
-            // 
-            this.FinalRunnerName.HeaderText = "Runner name";
-            this.FinalRunnerName.Name = "FinalRunnerName";
-            this.FinalRunnerName.ReadOnly = true;
-            // 
-            // BestLaptime
-            // 
-            this.BestLaptime.HeaderText = "Best lap time";
-            this.BestLaptime.Name = "BestLaptime";
-            this.BestLaptime.ReadOnly = true;
-            // 
-            // RaceTime
-            // 
-            this.RaceTime.HeaderText = "Race time";
-            this.RaceTime.Name = "RaceTime";
-            this.RaceTime.ReadOnly = true;
-            // 
             // lblRunnerFinished
             // 
             this.lblRunnerFinished.AutoSize = true;
@@ -288,46 +328,6 @@
             this.btnLapFinished.Text = "Finish lap";
             this.btnLapFinished.UseVisualStyleBackColor = true;
             this.btnLapFinished.Click += new System.EventHandler(this.btnLapFinished_Click);
-            // 
-            // RunnerId
-            // 
-            this.RunnerId.HeaderText = "Runner number";
-            this.RunnerId.Name = "RunnerId";
-            this.RunnerId.ReadOnly = true;
-            this.RunnerId.Width = 33;
-            // 
-            // Position
-            // 
-            this.Position.HeaderText = "Position";
-            this.Position.Name = "Position";
-            this.Position.ReadOnly = true;
-            this.Position.Width = 25;
-            // 
-            // RunnerName
-            // 
-            this.RunnerName.HeaderText = "Runner name";
-            this.RunnerName.Name = "RunnerName";
-            this.RunnerName.ReadOnly = true;
-            // 
-            // RunnerCountry
-            // 
-            this.RunnerCountry.HeaderText = "Runner country";
-            this.RunnerCountry.Name = "RunnerCountry";
-            this.RunnerCountry.ReadOnly = true;
-            this.RunnerCountry.Width = 50;
-            // 
-            // Lap
-            // 
-            this.Lap.HeaderText = "Lap";
-            this.Lap.Name = "Lap";
-            this.Lap.ReadOnly = true;
-            this.Lap.Width = 50;
-            // 
-            // LapTime
-            // 
-            this.LapTime.HeaderText = "Lap time";
-            this.LapTime.Name = "LapTime";
-            this.LapTime.ReadOnly = true;
             // 
             // RaceView
             // 
@@ -394,6 +394,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Lap;
         private System.Windows.Forms.DataGridViewTextBoxColumn LapTime;
         private Subro.Controls.DataGridViewGrouper GrouperLap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FinishedLaps;
     }
 }
 

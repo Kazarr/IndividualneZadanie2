@@ -52,7 +52,7 @@
             this.lblLapCount.Name = "lblLapCount";
             this.lblLapCount.Size = new System.Drawing.Size(56, 13);
             this.lblLapCount.TabIndex = 1;
-            this.lblLapCount.Text = "Lap Count";
+            this.lblLapCount.Text = "FinishedLaps Count";
             // 
             // textBox1
             // 
@@ -68,7 +68,7 @@
             this.lblLapLenght.Name = "lblLapLenght";
             this.lblLapLenght.Size = new System.Drawing.Size(61, 13);
             this.lblLapLenght.TabIndex = 3;
-            this.lblLapLenght.Text = "Lap Lenght";
+            this.lblLapLenght.Text = "FinishedLaps Lenght";
             // 
             // txtRunnersRewarded
             // 

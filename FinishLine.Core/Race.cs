@@ -8,14 +8,14 @@ namespace FinishLine.Core
         private Dictionary<int, Runner> _runners;
         private int _lapCount;
         private int _reward;
-        private Queue<Runner> _finishedRunners;
+        private Dictionary<int,Runner> _finishedRunners;
         private DateTime _date;
         private int _lapLenght;
 
         public Dictionary<int, Runner> Runners { get => _runners; set => _runners = value; }
         public int LapCount { get => _lapCount; set => _lapCount = value; }
         public int Reward { get => _reward; set => _reward = value; }
-        public Queue<Runner> FinishedRunners { get => _finishedRunners; set => _finishedRunners = value; }
+        public Dictionary<int,Runner> FinishedRunners { get => _finishedRunners; set => _finishedRunners = value; }
         public DateTime Date { get => _date; set => _date = value; }
         public int LapLenght { get => _lapLenght; set => _lapLenght = value; }
 
@@ -47,6 +47,7 @@ namespace FinishLine.Core
             Reward = reward;
             Date = new DateTime();
             LapLenght = lapLenght;
+            FinishedRunners = new Dictionary<int, Runner>();
         }
 
         public void AddRunner(int Id, Runner runner)
