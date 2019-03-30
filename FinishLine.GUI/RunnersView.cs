@@ -35,12 +35,28 @@ namespace FinishLine
                     int counter = 0;
                     gridRunners[0, counter].Value = RunnerViewModel.Runners[i].Id;
                     gridRunners[1, counter].Value = RunnerViewModel.Runners[i].Name;
-                    countryBindingSource.Add(RunnerViewModel.Runners[i].Country); // this is not working repair it !!!
+                    //countryBindingSource.Insert(i, RunnerViewModel.Runners[i].Country);
+                    countryBindingSource[i] = RunnerViewModel.Runners[i].Country;
+
+                    string SelectedText = Convert.ToString((gridRunners.Rows[0].Cells[2] as DataGridViewComboBoxCell).FormattedValue.ToString());
+                    int SelectedVal = Convert.ToInt32(gridRunners.Rows[0].Cells[2].Value);
+
+                    GetDataGridViewComboBoxCellSelectedIndex(gridRunners.Rows[0].Cells[2]);
+
+                    //gridRunners.Rows[counter].Cells[2].Value = 
+                    //gridRunners[2, counter].Selected = RunnerViewModel.Runners[i].Country.EnglishShortName;
+                    //countryBindingSource.Add(RunnerViewModel.Runners[i].Country); // this is not working repair it !!!
                     gridRunners[3, counter].Value = RunnerViewModel.Runners[i].Age;
                     gridRunners[4, counter].Value = RunnerViewModel.Runners[i].Sex;
+                    counter++;
                 }
                 
             }
+        }
+
+        private int GetDataGridViewComboBoxCellSelectedIndex(DataGridViewCell d)
+        {
+            return ((DataGridViewComboBoxCell)d).Items.IndexOf(d.Value);
         }
 
         private void gridRunners_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
