@@ -35,6 +35,11 @@ namespace FinishLine.Core
         public int Age { get => _age; set => _age = value; }
         public string Sex { get => _sex; set => _sex = value; }
 
+        public Runner()
+        {
+
+        }
+
         /// <summary>
         /// Make a new runner with generated ID
         /// </summary>

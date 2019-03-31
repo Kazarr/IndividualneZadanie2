@@ -18,12 +18,17 @@ namespace FinishLine.Core.Factory
             Runner ret = new Runner(name, country, age, sex);
             return ret;
         }
-        public static Race CreateRace(Dictionary<int, Runner> runners, int lapCount, int reward)
+        public static Runner CreateRunner()
+        {
+            Runner ret = new Runner();
+            return ret;
+        }
+        public static Race CreateRace(List<Runner> runners, int lapCount, int reward)
         {
             Race ret = new Race(runners, lapCount, reward);
             return ret;
         }
-        public static Race CreateRace(Dictionary<int,Runner> runners, int lapCount, int reward, DateTime date, int lapLenght)
+        public static Race CreateRace(List<Runner> runners, int lapCount, int reward, DateTime date, int lapLenght)
         {
             Race ret = new Race(runners, lapCount, reward, date, lapLenght);
             return ret;

@@ -19,7 +19,7 @@ namespace FinishLine.Core
         //    //LapFinished = new Stack<Runner>();
         //}
 
-        public void RaceStart(Dictionary<int, Runner> runners, int lapCount, int reward, DateTime date, int lapLenght)
+        public void RaceStart(List<Runner> runners, int lapCount, int reward, DateTime date, int lapLenght)
         {
             Race = Factory.Factory.CreateRace(runners, lapCount, reward, date, lapLenght);
             Race.Runners = RunnerViewModel.Runners;
@@ -39,7 +39,7 @@ namespace FinishLine.Core
         {
             if(Race.Runners[id].FinishedLaps == lapCount)
             {
-                Race.FinishedRunners.Add(id, Race.Runners[id]);
+                Race.FinishedRunners.Add(Race.Runners[id]);
                 return Race.Runners[id].IsFinished = true;
 
             }

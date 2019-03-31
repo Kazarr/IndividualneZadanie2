@@ -17,12 +17,6 @@ namespace FinishLine
     {
         public RunnerViewModel RunnerViewModel { get; set; }
 
-        // This DataGridView control displays the contents of the list.  
-        private DataGridView customersDataGridView = new DataGridView();
-
-        // This BindingSource binds the list to the DataGridView control.  
-        private BindingSource customersBindingSource = new BindingSource();
-
         public RunnersView(RunnerViewModel runnerViewModel)
         {
             RunnerViewModel = runnerViewModel;
@@ -38,13 +32,13 @@ namespace FinishLine
             if (RunnerViewModel.Runners.Count > 0)
             {
                 //int counter = 0;
-                foreach (int i in RunnerViewModel.Runners.Keys)
+                foreach (Runner i in RunnerViewModel.Runners)
                 {
-                    gridRunners.Rows.Add(RunnerViewModel.Runners[i].Id,
-                                        RunnerViewModel.Runners[i].Name,
-                                        RunnerViewModel.Runners[i].Country,
-                                        RunnerViewModel.Runners[i].Age,
-                                        RunnerViewModel.Runners[i].Sex);
+                    gridRunners.Rows.Add(i.Id,
+                                        i.Name,
+                                        i.Country,
+                                        i.Age,
+                                        i.Sex);
                     //dataGridView1.Rows[0].Cells[1].Value = "second";
                     //counter++;
                 }
@@ -60,7 +54,6 @@ namespace FinishLine
         private void gridRunners_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             gridRunners.Rows[e.RowIndex].ErrorText = "";
-            //int newInteger;
             if (e.ColumnIndex == 0 || e.ColumnIndex == 3)
             {
                 int i;
@@ -69,6 +62,15 @@ namespace FinishLine
                 {
                     e.Cancel = true;
                     gridRunners.Rows[e.RowIndex].ErrorText = "the value must be a number";
+                }
+            }
+            if(e.ColumnIndex == 1 || e.ColumnIndex == 4)
+            {
+                if (gridRunners.Rows[e.RowIndex].IsNewRow) { return; }
+                if (e.FormattedValue.Equals(""))
+                {
+                    e.Cancel = true;
+                    gridRunners.Rows[e.RowIndex].ErrorText = "the value must be string";
                 }
             }
         }
@@ -138,19 +140,63 @@ namespace FinishLine
 
         private void gridRunners_RowLeave(object sender, DataGridViewCellEventArgs e)
         {
-            if (!gridRunners.Rows[e.RowIndex].IsNewRow)
+            if(gridRunners[0,e.RowIndex].Value == null)
             {
-                if (gridRunners.IsCurrentCellInEditMode)
-                {
-                    RunnerViewModel.SaveRunners(GetIntInput(gridRunners.EditingControl.Text),
-                  gridRunners.EditingControl.Text,
-                  //(Country)gridRunners[2, i].Value,
-                  (Country)countryBindingSource.Current,
-                  GetIntInput(gridRunners.EditingControl.Text),
-                  gridRunners.EditingControl.Text);
-                }
-                
+                gridRunners.CurrentCell = gridRunners[0, e.RowIndex];
             }
+            else
+            {
+                if (!gridRunners.Rows[e.RowIndex].IsNewRow)
+                {
+                    RunnerViewModel.SaveRunners(GetIntInput((string)gridRunners[0, e.RowIndex].Value),
+                    (string)gridRunners[1, e.RowIndex].Value,
+                    //(Country)gridRunners[2, i].Value,
+                    (Country)countryBindingSource.Current,
+                    GetIntInput((string)gridRunners[3,e.RowIndex].Value),
+                    gridRunners.EditingControl.Text,  //lebo event rowleave sa vyvolá ešte skôr ako sa ukončí editovanie bunky, preto musím hodnotu získať z editing controlera
+                    e.RowIndex);
+                }
+            }
+            
+        }
+
+        private void gridRunners_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex != 0)
+            {
+                //RunnerViewModel.Runners.fi
+            }
+        }
+
+        private void gridRunners_RowValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            //for(int i = 0; i < gridRunners.ColumnCount; i++)
+            //{
+            //    if (gridRunners[e.RowIndex, i].Value.Equals(""))
+            //    {
+            //        gridRunners_CellValidating(sender, e);
+            //    }
+            //}
+            
+        }
+
+        private void gridRunners_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            //if (e.ColumnIndex != 0)
+            //{
+            //    if (gridRunners[0, e.RowIndex].Value == null)
+            //    {
+            //        gridRunners.CurrentCell = gridRunners[0, e.RowIndex];
+            //    }
+            //}
+        }
+
+        private void gridRunners_Click(object sender, EventArgs e)
+        {
+            //if (gridRunners.Columns[0]. == null)
+            //{
+            //    gridRunners.CurrentCell = gridRunners[0, e.RowIndex];
+            //}
         }
     }
 }

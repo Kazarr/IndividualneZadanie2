@@ -8,34 +8,28 @@ namespace FinishLine.Core
 {
     public class RunnerViewModel
     {
-        public Dictionary<int, Runner> Runners { get; set; } 
+        public List<Runner> Runners { get; set; } 
         public RunnerViewModel()
         {
-            Runners = new Dictionary<int, Runner>();
+            Runners = new List<Runner>();
         }
 
-        public void SaveRunners(int id, string name, Country country, int age, string sex)
+
+
+        public void SaveRunners(int id, string name, Country country, int age, string sex, int gridRowIndex)
         {
-            if (Runners.ContainsKey(id))
+            Runner runner = Factory.Factory.CreateRunner(id, name, country, age, sex);
+            try
             {
-                if(!(Runners[id].Name == name && Runners[id].Country == country && Runners[id].Age == age && Runners[id].Sex == sex))
-                {
-                    Runners.Remove(id);
-                    Runner r = Factory.Factory.CreateRunner(id, name, country, age, sex);
-                    Runners.Add(id, r);
-                }
+                Runners.RemoveAt(gridRowIndex);
+                Runners.Add(runner);
             }
-            else
+            catch(ArgumentOutOfRangeException e)
             {
-                Runner r = Factory.Factory.CreateRunner(id, name, country, age, sex);
-                Runners.Add(id, r);
+                Runners.Add(runner);
             }
             
-        }
 
-        private bool ContainsRunnerKey(int id)
-        {
-            return Runners.ContainsKey(id);
         }
 
     }
