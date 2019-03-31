@@ -74,6 +74,7 @@ namespace FinishLine
             {
                 txtLapCount.Enabled = false;
                 txtLapLenght.Enabled = false;
+                txtReward.Enabled = false;
             }
         }
 
@@ -95,26 +96,48 @@ namespace FinishLine
         }
         private void btnLapFinished_Click(object sender, EventArgs e)
         {
-            TimeSpan time = DateTime.Now.Subtract(RaceViewModel.Race.Date);
+            TimeSpan racetime = DateTime.Now.Subtract(RaceViewModel.Race.RaceDate);
+            TimeSpan lapTime = DateTime.Now.Subtract(RaceViewModel.Race.LapDate);
             int id = GetIntInput(txtRunnerNumber.Text);
-
-            RaceViewModel.Race.FinishedRunners.Add(id, RaceViewModel.Race.Runners[id]);
             RaceViewModel.Race.Runners[id].FinishedLaps++;
 
+            if (RaceViewModel.Race.Runners[id].FinishedLaps != GetIntInput(txtLapCount.Text))
+            {
+                
 
-            gridLapOverview.Rows.Add(
-                id,
-                RaceViewModel.Race.Runners[id].Position,
-                RaceViewModel.Race.Runners[id].Name,
-                RaceViewModel.Race.Runners[id].Country,
-                RaceViewModel.Race.Runners[id].FinishedLaps,
-                time,
-                RaceViewModel.Race.LapLenght);
-            //gridLapOverview[0, gridLapOverview.RowCount].Value = id;
-            //gridLapOverview[1, gridLapOverview.RowCount].Value = RaceViewModel.Race.Runners;
+                gridLapOverview.Rows.Add(
+                    id,
+                    RaceViewModel.Race.Runners[id].Position,
+                    RaceViewModel.Race.Runners[id].Name,
+                    RaceViewModel.Race.Runners[id].Country,
+                    RaceViewModel.Race.Runners[id].FinishedLaps,
+                    lapTime,
+                    RaceViewModel.Race.LapLenght);
+            }
+            else
+            {
+                gridLapOverview.Rows.Add(
+                    id,
+                    RaceViewModel.Race.Runners[id].Position,
+                    RaceViewModel.Race.Runners[id].Name,
+                    RaceViewModel.Race.Runners[id].Country,
+                    RaceViewModel.Race.Runners[id].FinishedLaps,
+                    lapTime,
+                    RaceViewModel.Race.LapLenght);
 
+                RaceViewModel.Race.Runners[id].IsFinished = true;
+                RaceViewModel.Race.FinishedRunners.Add(id, RaceViewModel.Race.Runners[id]);
+                gridRaceOverview.Rows.Add(
+                        id,
+                        RaceViewModel.Race.Runners[id].Position,
+                        RaceViewModel.Race.Runners[id].Name,
+                        RaceViewModel.Race.Runners[id].Country,
+                        1,
+                        racetime,
+                        RaceViewModel.Race.LapLenght);
+            }
+                
             
-
         }
     }
 }

@@ -16,8 +16,11 @@ namespace FinishLine.Core
         public int LapCount { get => _lapCount; set => _lapCount = value; }
         public int Reward { get => _reward; set => _reward = value; }
         public Dictionary<int,Runner> FinishedRunners { get => _finishedRunners; set => _finishedRunners = value; }
-        public DateTime Date { get => _date; set => _date = value; }
+        public DateTime RaceDate { get => _date; set => _date = value; }
+        public DateTime LapDate { get; set; }
         public int LapLenght { get => _lapLenght; set => _lapLenght = value; }
+
+
 
         public Race()
         {
@@ -45,7 +48,8 @@ namespace FinishLine.Core
             Runners = new Dictionary<int, Runner>();
             LapCount = lapCount;
             Reward = reward;
-            Date = new DateTime();
+            RaceDate = date;
+            LapDate = date;
             LapLenght = lapLenght;
             FinishedRunners = new Dictionary<int, Runner>();
         }

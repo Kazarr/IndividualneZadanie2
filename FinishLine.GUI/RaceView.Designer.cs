@@ -238,9 +238,9 @@
             this.lblLapLenght.AutoSize = true;
             this.lblLapLenght.Location = new System.Drawing.Point(9, 24);
             this.lblLapLenght.Name = "lblLapLenght";
-            this.lblLapLenght.Size = new System.Drawing.Size(66, 13);
+            this.lblLapLenght.Size = new System.Drawing.Size(56, 13);
             this.lblLapLenght.TabIndex = 5;
-            this.lblLapLenght.Text = "Laps Lenght";
+            this.lblLapLenght.Text = "Lap Count";
             // 
             // txtLapCount
             // 
@@ -257,7 +257,7 @@
             this.lblLapCount.Name = "lblLapCount";
             this.lblLapCount.Size = new System.Drawing.Size(61, 13);
             this.lblLapCount.TabIndex = 7;
-            this.lblLapCount.Text = "Laps Count";
+            this.lblLapCount.Text = "Lap Lenght";
             // 
             // txtLapLenght
             // 
