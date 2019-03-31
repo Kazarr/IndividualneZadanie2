@@ -39,7 +39,7 @@ namespace FinishLine.Core
         {
             if(Race.Runners[id].FinishedLaps == lapCount)
             {
-                Race.FinishedRunners.Add(id, Race.Runners[id])
+                Race.FinishedRunners.Add(id, Race.Runners[id]);
                 return Race.Runners[id].IsFinished = true;
 
             }
