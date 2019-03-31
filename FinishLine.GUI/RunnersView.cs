@@ -54,6 +54,18 @@ namespace FinishLine
         private void gridRunners_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             gridRunners.Rows[e.RowIndex].ErrorText = "";
+            if (e.ColumnIndex == 0)
+            {
+                for(int i = 0; i < gridRunners.RowCount; i++)
+                {
+                    if(e.FormattedValue.Equals(gridRunners[0,i].Value))
+                    {
+                        e.Cancel = true;
+                        gridRunners.Rows[e.RowIndex].ErrorText = "you cant add same id";
+                    }
+                }
+                
+            }
             if (e.ColumnIndex == 0 || e.ColumnIndex == 3)
             {
                 int i;
@@ -140,9 +152,15 @@ namespace FinishLine
 
         private void gridRunners_RowLeave(object sender, DataGridViewCellEventArgs e)
         {
-            if(gridRunners[0,e.RowIndex].Value == null)
+            gridRunners.Rows[e.RowIndex].ErrorText = "";
+            if (gridRunners[0,e.RowIndex].Value == null ||
+                gridRunners[1, e.RowIndex].Value == null ||
+                gridRunners[2, e.RowIndex].Value == null ||
+                gridRunners[3, e.RowIndex].Value == null ||
+                gridRunners.EditingControl.Text == null)
             {
                 gridRunners.CurrentCell = gridRunners[0, e.RowIndex];
+                gridRunners.Rows[e.RowIndex].ErrorText = "didnt you forget something here?";
             }
             else
             {
@@ -197,6 +215,11 @@ namespace FinishLine
             //{
             //    gridRunners.CurrentCell = gridRunners[0, e.RowIndex];
             //}
+        }
+
+        private void gridRunners_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            RunnerViewModel.RemoveRunners(e.RowIndex);
         }
     }
 }

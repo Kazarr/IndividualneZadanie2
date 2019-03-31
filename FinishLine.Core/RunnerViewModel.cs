@@ -28,8 +28,10 @@ namespace FinishLine.Core
             {
                 Runners.Add(runner);
             }
-            
-
+        }
+        public void RemoveRunners(int gridRowIndex)
+        {
+            Runners.RemoveAt(gridRowIndex);
         }
 
     }

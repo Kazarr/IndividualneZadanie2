@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gridRunners = new System.Windows.Forms.DataGridView();
-            this.countryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,6 +37,7 @@
             this.colCountry = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.colAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridRunners)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -59,13 +59,9 @@
             this.gridRunners.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridRunners_CellEnter);
             this.gridRunners.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.gridRunners_CellValidating);
             this.gridRunners.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridRunners_RowLeave);
+            this.gridRunners.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.gridRunners_RowsRemoved);
             this.gridRunners.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridRunners_RowValidated);
             this.gridRunners.Click += new System.EventHandler(this.gridRunners_Click);
-            // 
-            // countryBindingSource
-            // 
-            this.countryBindingSource.DataSource = typeof(FinishLine.Core.Country);
-            this.countryBindingSource.CurrentChanged += new System.EventHandler(this.countryBindingSource_CurrentChanged);
             // 
             // btnSave
             // 
@@ -119,6 +115,11 @@
             this.colSex.DataPropertyName = "Sex";
             this.colSex.HeaderText = "Sex";
             this.colSex.Name = "colSex";
+            // 
+            // countryBindingSource
+            // 
+            this.countryBindingSource.DataSource = typeof(FinishLine.Core.Country);
+            this.countryBindingSource.CurrentChanged += new System.EventHandler(this.countryBindingSource_CurrentChanged);
             // 
             // RunnersView
             // 
