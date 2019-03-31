@@ -30,16 +30,16 @@ namespace FinishLine
         {
             if (RunnerViewModel.Runners.Count > 0)
             {
-                int counter = 0;
+                //int counter = 0;
                 foreach (int i in RunnerViewModel.Runners.Keys)
                 {
                     gridRunners.Rows.Add(RunnerViewModel.Runners[i].Id,
                                         RunnerViewModel.Runners[i].Name,
-                                        RunnerViewModel.Runners[i].Country.EnglishShortName,
+                                        RunnerViewModel.Runners[i].Country,
                                         RunnerViewModel.Runners[i].Age,
                                         RunnerViewModel.Runners[i].Sex);
                     //dataGridView1.Rows[0].Cells[1].Value = "second";
-                    counter++;
+                    //counter++;
                 }
                 
             }
@@ -74,19 +74,76 @@ namespace FinishLine
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            for(int i = 0; i < gridRunners.RowCount-1; i++)
-            {
-                //int id = int.Parse((string)gridRunners[0, i].Value);
-                //int age = int.Parse((string)gridRunners[0, i].Value);
-                Runner r = Factory.CreateRunner(int.Parse((string)gridRunners[0, i].Value), 
-                    (string)gridRunners[1, i].Value, 
-                    (Country)countryBindingSource.Current,
-                    int.Parse((string)gridRunners[3, i].Value), 
-                    (string)gridRunners[4, i].Value);
-                RunnerViewModel.Runners.Add(int.Parse((string)gridRunners[0, i].Value), r);
-            }
+            //int i = gridRunners.RowCount - 2;
+            //for(int i = 0; i < gridRunners.RowCount-1; i++)
+            //{
+            //    //int id = int.Parse((string)gridRunners[0, i].Value);
+            //    //int age = int.Parse((string)gridRunners[0, i].Value);
+            //    RunnerViewModel.SaveRunners(GetIntInput((string)gridRunners[0, i].Value),
+            //        (string)gridRunners[1, i].Value,
+            //        (Country)gridRunners[2, i].Value,
+            //        //(Country)countryBindingSource.Current,
+            //        GetIntInput((string)gridRunners[3, i].Value), 
+            //        (string)gridRunners[4, i].Value);
+            //    //RunnerViewModel.Runners.Add(int.Parse((string)gridRunners[0, i].Value), r);
+            //}
+            //RunnerViewModel.SaveRunners(GetIntInput((string)gridRunners[0, i].Value),
+            //      (string)gridRunners[1, i].Value,
+            //      //(Country)gridRunners[2, i].Value,
+            //      (Country)countryBindingSource.Current,
+            //      GetIntInput((string)gridRunners[3, i].Value),
+            //      (string)gridRunners[4, i].Value);
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private int GetIntInput(string text)
+        {
+            int ret = 0;
+            if(int.TryParse(text, out ret))
+            {
+                return ret;
+            }
+            else
+            {
+                return ret;
+            }
+        }
+
+        private void countryBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+        }
+
+        //private void gridRunners_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        //{
+        //    int i = gridRunners.RowCount -3;
+        //    if ( gridRunners.RowCount >= 3)
+        //    {
+        //        RunnerViewModel.SaveRunners(GetIntInput((string)gridRunners[0, i].Value),
+        //          (string)gridRunners[1, i].Value,
+        //          //(Country)gridRunners[2, i].Value,
+        //          (Country)countryBindingSource.Current,
+        //          GetIntInput((string)gridRunners[3, i].Value),
+        //          (string)gridRunners[4, i].Value);
+        //        i++;
+        //    }
+        //}
+
+        private void gridRunners_RowLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (!gridRunners.Rows[e.RowIndex].IsNewRow)
+            {
+                if (gridRunners.IsCurrentCellInEditMode)
+                {
+                    RunnerViewModel.SaveRunners(GetIntInput(gridRunners.EditingControl.Text),
+                  gridRunners.EditingControl.Text,
+                  //(Country)gridRunners[2, i].Value,
+                  (Country)countryBindingSource.Current,
+                  GetIntInput(gridRunners.EditingControl.Text),
+                  gridRunners.EditingControl.Text);
+                }
+                
+            }
         }
     }
 }

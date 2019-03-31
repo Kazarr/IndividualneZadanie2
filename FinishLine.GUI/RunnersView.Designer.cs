@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gridRunners = new System.Windows.Forms.DataGridView();
-            this.countryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Country = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.countryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Age = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridRunners)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -56,30 +56,7 @@
             this.gridRunners.Size = new System.Drawing.Size(775, 372);
             this.gridRunners.TabIndex = 0;
             this.gridRunners.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.gridRunners_CellValidating);
-            // 
-            // countryBindingSource
-            // 
-            this.countryBindingSource.DataSource = typeof(FinishLine.Core.Country);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(713, 415);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 1;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(12, 415);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 2;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.gridRunners.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridRunners_RowLeave);
             // 
             // ID
             // 
@@ -100,7 +77,11 @@
             this.Country.DisplayMember = "EnglishShortName";
             this.Country.HeaderText = "Country";
             this.Country.Name = "Country";
-            this.Country.ValueMember = "EnglishShortName";
+            // 
+            // countryBindingSource
+            // 
+            this.countryBindingSource.DataSource = typeof(FinishLine.Core.Country);
+            this.countryBindingSource.CurrentChanged += new System.EventHandler(this.countryBindingSource_CurrentChanged);
             // 
             // Age
             // 
@@ -113,6 +94,26 @@
             this.Sex.DataPropertyName = "Sex";
             this.Sex.HeaderText = "Sex";
             this.Sex.Name = "Sex";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(713, 415);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 1;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(12, 415);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 2;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // RunnersView
             // 
