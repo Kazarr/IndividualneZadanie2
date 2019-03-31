@@ -36,7 +36,7 @@ namespace FinishLine
                 {
                     gridRunners.Rows.Add(i.Id,
                                         i.Name,
-                                        i.Country,
+                                        i.Country.EnglishShortName,
                                         i.Age,
                                         i.Sex);
                     //dataGridView1.Rows[0].Cells[1].Value = "second";
