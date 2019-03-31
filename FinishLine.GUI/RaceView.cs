@@ -61,15 +61,13 @@ namespace FinishLine
             DateTime dateTime = DateTime.Now;
             lblTime.Text = dateTime.ToLongTimeString();
             lblTime.Visible = true;
-            RaceViewModel = new RaceViewModel(
-                RunnerViewModel.Runners,
+            RaceViewModel = new RaceViewModel();
+            RaceViewModel.RaceStart(
+                RunnerViewModel.Runners, 
                 GetIntInput(txtLapCount.Text),
                 GetIntInput(txtReward.Text),
                 dateTime,
                 GetIntInput(txtLapLenght.Text));
-
-            RaceViewModel.Race.Runners = RunnerViewModel.Runners;
-
             if (RunnerViewModel.Runners.Count > 0)
             {
                 txtLapCount.Enabled = false;
@@ -99,12 +97,12 @@ namespace FinishLine
             TimeSpan racetime = DateTime.Now.Subtract(RaceViewModel.Race.RaceDate);
             TimeSpan lapTime = DateTime.Now.Subtract(RaceViewModel.Race.LapDate);
             int id = GetIntInput(txtRunnerNumber.Text);
-            RaceViewModel.Race.Runners[id].FinishedLaps++;
 
-            if (RaceViewModel.Race.Runners[id].FinishedLaps != GetIntInput(txtLapCount.Text))
+            RaceViewModel.FinishLap(id);
+            RaceViewModel.IsFinished(id, GetIntInput(txtLapCount.Text));
+
+            if (!RaceViewModel.IsFinished(id, GetIntInput(txtLapCount.Text)))
             {
-                
-
                 gridLapOverview.Rows.Add(
                     id,
                     RaceViewModel.Race.Runners[id].Position,
@@ -125,8 +123,6 @@ namespace FinishLine
                     lapTime,
                     RaceViewModel.Race.LapLenght);
 
-                RaceViewModel.Race.Runners[id].IsFinished = true;
-                RaceViewModel.Race.FinishedRunners.Add(id, RaceViewModel.Race.Runners[id]);
                 gridRaceOverview.Rows.Add(
                         id,
                         RaceViewModel.Race.Runners[id].Position,
@@ -136,8 +132,6 @@ namespace FinishLine
                         racetime,
                         RaceViewModel.Race.LapLenght);
             }
-                
-            
         }
     }
 }
