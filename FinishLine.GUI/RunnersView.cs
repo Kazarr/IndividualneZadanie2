@@ -16,6 +16,13 @@ namespace FinishLine
     public partial class RunnersView : Form
     {
         public RunnerViewModel RunnerViewModel { get; set; }
+
+        // This DataGridView control displays the contents of the list.  
+        private DataGridView customersDataGridView = new DataGridView();
+
+        // This BindingSource binds the list to the DataGridView control.  
+        private BindingSource customersBindingSource = new BindingSource();
+
         public RunnersView(RunnerViewModel runnerViewModel)
         {
             RunnerViewModel = runnerViewModel;

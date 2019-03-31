@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FinishLine.Core
 {
-    public class Runner
+    public class Runner : INotifyPropertyChanged
     {
         private int _id;
         private string _name;
         private Country _country;
         private int _age;
         private string _sex;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Runners position in current lap. 
