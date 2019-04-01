@@ -123,20 +123,16 @@ namespace FinishLine
 
         private void saveAsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Stream myStream;
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            
-
-            saveFileDialog1.Filter = "race files (*.race)|*.race";
-            saveFileDialog1.FilterIndex = 2;
-            saveFileDialog1.RestoreDirectory = true;
-
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.RootFolder = Environment.SpecialFolder.Desktop;
+            fbd.Description = "Select directory to save race";
+            if (fbd.ShowDialog() == DialogResult.OK)
             {
-                Save save = new Save(RaceViewModel,RunnerViewModel);
-                    
-                save.SaveRace(saveFileDialog1.FileName);
+                string path = fbd.SelectedPath;
+                Save save = new Save(RaceViewModel, RunnerViewModel);
+                save.SaveRace(path);
             }
+            
         }
 
         private void btnLapFinished_Click_1(object sender, EventArgs e)
@@ -157,7 +153,26 @@ namespace FinishLine
 
         private void loadToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.RootFolder = Environment.SpecialFolder.MyComputer;
+            fbd.Description = "Choose directory with .race and .";
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                string path = fbd.SelectedPath;
+                finishedLapBindingSource.DataSource = Core.Repository.Load.LoadFinishedLap(path);
+                gridLapOverview.Columns[1].Visible = false;
+                resultBindingSource.DataSource = Core.Repository.Load.LoadRaceResult(path);
+                txtLapCount.Enabled = false;
+                txtLapLenght.Enabled = false;
+                txtReward.Enabled = false;
+                txtRunnerNumber.Enabled = true;
+                btnLapFinished.Enabled = true;
+                btnStart.Enabled = false;
+                txtRunnerNumber.Enabled = false;
+                btnLapFinished.Enabled = false;
+                runnersToolStripMenuItem.Enabled = false;
+                saveAsToolStripMenuItem1.Enabled = false;
+            }
         }
     }
 }

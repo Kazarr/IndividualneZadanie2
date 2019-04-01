@@ -17,7 +17,7 @@ namespace FinishLine.Core
         public double AverageSpeed { get; set; }
         //public DateTime LapTime { get; set; }
 
-        public FinishedLap(int id, int position, string name, string country, int finishedLaps, TimeSpan finishedLapTime)
+        public FinishedLap(int id, string name, string country, int finishedLaps, TimeSpan finishedLapTime, double averageSpeed)
         {
             Id = id;
             //Position = position;
@@ -25,6 +25,7 @@ namespace FinishLine.Core
             Country = country;
             FinishedLaps = finishedLaps;
             FinishedLapTime = finishedLapTime;
+            AverageSpeed = averageSpeed;
         }
         public FinishedLap(int id)
         {

@@ -31,14 +31,16 @@ namespace FinishLine.Core.Repository
         }
         public void SaveRace(string path)
         {
+            string lapPath = Path.Combine(path,"laps.lp");
             foreach(FinishedLap fl in RaceViewModel.LapGridData)
             {
-                File.AppendAllText(path, fl.ToString());
+                File.AppendAllText(lapPath, fl.ToString());
             }
-            File.AppendAllText(path, ";");
+
+            string racePath = Path.Combine(path, "race.rc");
             foreach(RaceResult rc in RaceViewModel.RaceGridData)
             {
-                File.AppendAllText(path, rc.ToString());
+                File.AppendAllText(racePath, rc.ToString());
             }
         }
         

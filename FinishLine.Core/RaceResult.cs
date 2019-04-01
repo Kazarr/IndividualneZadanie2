@@ -16,13 +16,14 @@ namespace FinishLine.Core
         public double AverageSpeed { get; set; }
 
 
-        public RaceResult(int id, int position, string name, TimeSpan bestLap, TimeSpan raceTime)
+        public RaceResult(int id, int position, string name, TimeSpan bestLap, TimeSpan raceTime, double averageSpeed)
         {
             Id = id;
             Position = position;
             Name = name;
             BestLap = bestLap;
             RaceTime = raceTime;
+            AverageSpeed = averageSpeed;
         }
         public RaceResult(int id)
         {
@@ -32,6 +33,7 @@ namespace FinishLine.Core
         {
 
         }
+
 
         public override string ToString()
         {

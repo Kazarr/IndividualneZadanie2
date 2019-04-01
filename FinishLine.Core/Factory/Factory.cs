@@ -71,9 +71,17 @@ namespace FinishLine.Core.Factory
         {
             return new FinishedLap(id);
         }
+        public static FinishedLap CreateFinishedLap(int id, string name, string country, int finishedLaps, TimeSpan finishedLapTime, double averageSpeed)
+        {
+            return new FinishedLap(id, name, country, finishedLaps, finishedLapTime, averageSpeed);
+        }
         public static RaceResult CreateRaceResult(int id)
         {
             return new RaceResult(id);
+        }
+        public static RaceResult CreateRaceResult(int id, int position, string name, TimeSpan bestLap, TimeSpan raceTime, double averageSpeed)
+        {
+            return new RaceResult(id, position, name, bestLap, raceTime, averageSpeed);
         }
     }
 }

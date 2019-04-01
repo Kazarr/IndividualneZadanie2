@@ -135,5 +135,52 @@ namespace FinishLine.Core.Repository
             }
             return ret;
         }
+        public static BindingList<FinishedLap> LoadFinishedLap(string path)
+        {
+            path = Path.Combine(path, "laps.lp");
+            BindingList<FinishedLap> ret = new BindingList<FinishedLap>();
+            string[] lines = File.ReadAllLines(path);
+            for (int i = 0; i < lines.Length; i++)
+            {
+                string[] lapResult = lines[i].Split('\t');
+                string txtId = lapResult[0];
+                string txtName = lapResult[1];
+                string txtCountry = lapResult[2];
+                string txtFinishedLaps = lapResult[3];
+                string txtFinishedLapTime = lapResult[4];
+                string txtAverageSpeed = lapResult[5];
+                int id = int.Parse(txtId);
+                int finishedLaps = int.Parse(txtFinishedLaps);
+                TimeSpan lapsTime = TimeSpan.Parse(txtFinishedLapTime);
+                double average = double.Parse(txtAverageSpeed);
+                FinishedLap fl = Factory.Factory.CreateFinishedLap(id, txtName, txtCountry, finishedLaps, lapsTime,average);
+                ret.Add(fl);
+            }
+            return ret;
+        }
+        public static BindingList<RaceResult> LoadRaceResult(string path)
+        {
+            path = Path.Combine(path,"race.rc");
+            BindingList<RaceResult> ret = new BindingList<RaceResult>();
+            string[] lines = File.ReadAllLines(path);
+            for (int i = 0; i < lines.Length; i++)
+            {
+                string[] raceResult = lines[i].Split('\t');
+                string txtId = raceResult[0];
+                string txtPosition = raceResult[1];
+                string txtName = raceResult[2];
+                string txtBestTime = raceResult[3];
+                string txtRaceTime = raceResult[4];
+                string txtAverageSpeed = raceResult[5];
+                int id = int.Parse(txtId);
+                int position = int.Parse(txtPosition);
+                TimeSpan bestTime = TimeSpan.Parse(txtBestTime);
+                TimeSpan raceTime = TimeSpan.Parse(txtRaceTime);
+                double average = double.Parse(txtAverageSpeed);
+                RaceResult rr = Factory.Factory.CreateRaceResult(id,position, txtName, bestTime, raceTime, average);
+                ret.Add(rr);
+            }
+            return ret;
+        }
     }
 }
