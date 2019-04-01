@@ -53,6 +53,7 @@ namespace FinishLine
 
         private void gridRunners_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
+
             gridRunners.Rows[e.RowIndex].ErrorText = "";
             if (e.ColumnIndex == 0)
             {
@@ -79,7 +80,7 @@ namespace FinishLine
             if(e.ColumnIndex == 1 || e.ColumnIndex == 4)
             {
                 if (gridRunners.Rows[e.RowIndex].IsNewRow) { return; }
-                if (e.FormattedValue.Equals(""))
+                if (e.FormattedValue.Equals("") || e.FormattedValue == null)
                 {
                     e.Cancel = true;
                     gridRunners.Rows[e.RowIndex].ErrorText = "the value must be string";
@@ -152,50 +153,48 @@ namespace FinishLine
 
         private void gridRunners_RowLeave(object sender, DataGridViewCellEventArgs e)
         {
-            gridRunners.Rows[e.RowIndex].ErrorText = "";
-            if (gridRunners[0,e.RowIndex].Value == null ||
-                gridRunners[1, e.RowIndex].Value == null ||
-                gridRunners[2, e.RowIndex].Value == null ||
-                gridRunners[3, e.RowIndex].Value == null ||
-                gridRunners.EditingControl.Text == null)
-            {
-                gridRunners.CurrentCell = gridRunners[0, e.RowIndex];
-                gridRunners.Rows[e.RowIndex].ErrorText = "didnt you forget something here?";
-            }
-            else
-            {
-                if (!gridRunners.Rows[e.RowIndex].IsNewRow)
-                {
-                    RunnerViewModel.SaveRunners(GetIntInput((string)gridRunners[0, e.RowIndex].Value),
-                    (string)gridRunners[1, e.RowIndex].Value,
-                    //(Country)gridRunners[2, i].Value,
-                    (Country)countryBindingSource.Current,
-                    GetIntInput((string)gridRunners[3,e.RowIndex].Value),
-                    gridRunners.EditingControl.Text,  //lebo event rowleave sa vyvolá ešte skôr ako sa ukončí editovanie bunky, preto musím hodnotu získať z editing controlera
-                    e.RowIndex);
-                }
-            }
-            
+            //gridRunners.Rows[e.RowIndex].ErrorText = "";
+            //if (gridRunners[0, e.RowIndex].Value == null ||
+            //    gridRunners[1, e.RowIndex].Value == null ||
+            //    gridRunners[2, e.RowIndex].Value == null ||
+            //    gridRunners[3, e.RowIndex].Value == null ||
+            //    gridRunners[4, e.RowIndex].Value == null)
+            //{
+
+            //    gridRunners.CurrentCell = gridRunners[0, e.RowIndex];
+            //    gridRunners.Rows[e.RowIndex].ErrorText = "didnt you forget something here?";
+            //}
+            //if (!gridRunners.Rows[e.RowIndex].IsNewRow)
+            //{
+            //    RunnerViewModel.SaveRunners(GetIntInput((string)gridRunners[0, e.RowIndex].Value),
+            //    (string)gridRunners[1, e.RowIndex].Value,
+            //    //(Country)gridRunners[2, i].Value,
+            //    (Country)countryBindingSource.Current,
+            //    GetIntInput((string)gridRunners[3,e.RowIndex].Value),
+            //    gridRunners.EditingControl.Text,  //lebo event rowleave sa vyvolá ešte skôr ako sa ukončí editovanie bunky, preto musím hodnotu získať z editing controlera
+            //    e.RowIndex);
+            //}
         }
 
         private void gridRunners_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex != 0)
-            {
-                //RunnerViewModel.Runners.fi
-            }
+            
         }
 
         private void gridRunners_RowValidated(object sender, DataGridViewCellEventArgs e)
         {
-            //for(int i = 0; i < gridRunners.ColumnCount; i++)
+            //gridRunners.Rows[e.RowIndex].ErrorText = "";
+            //if (gridRunners[0, e.RowIndex].Value == null ||
+            //    gridRunners[1, e.RowIndex].Value == null ||
+            //    gridRunners[2, e.RowIndex].Value == null ||
+            //    gridRunners[3, e.RowIndex].Value == null ||
+            //    gridRunners[4, e.RowIndex].Value == null)
             //{
-            //    if (gridRunners[e.RowIndex, i].Value.Equals(""))
-            //    {
-            //        gridRunners_CellValidating(sender, e);
-            //    }
+
+            //    //gridRunners.CurrentCell = gridRunners[0, e.RowIndex];
+            //    gridRunners.Rows[e.RowIndex].ErrorText = "didnt you forget something here?";
             //}
-            
+
         }
 
         private void gridRunners_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -220,6 +219,46 @@ namespace FinishLine
         private void gridRunners_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             RunnerViewModel.RemoveRunners(e.RowIndex);
+        }
+
+        private void gridRunners_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            //e.
+        }
+
+        private void gridRunners_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            gridRunners.Rows[e.RowIndex].ErrorText = "";
+            if (gridRunners[0, e.RowIndex].Value == null)
+            {
+                e.Cancel = true;
+                gridRunners.CurrentCell = gridRunners[0, e.RowIndex];
+                gridRunners.Rows[e.RowIndex].ErrorText = "didnt you forget something here?";
+            }
+            else if(gridRunners[1, e.RowIndex].Value == null)
+            {
+                e.Cancel = true;
+                gridRunners.CurrentCell = gridRunners[1, e.RowIndex];
+                gridRunners.Rows[e.RowIndex].ErrorText = "didnt you forget something here?";
+            }
+            else if(gridRunners[2, e.RowIndex].Value == null)
+            {
+                e.Cancel = true;
+                gridRunners.CurrentCell = gridRunners[2, e.RowIndex];
+                gridRunners.Rows[e.RowIndex].ErrorText = "didnt you forget something here?";
+            }
+            else if (gridRunners[3, e.RowIndex].Value == null)
+            {
+                e.Cancel = true;
+                gridRunners.CurrentCell = gridRunners[3, e.RowIndex];
+                gridRunners.Rows[e.RowIndex].ErrorText = "didnt you forget something here?";
+            }
+            else if(gridRunners[4, e.RowIndex].Value == null)
+            {
+                e.Cancel = true;
+                gridRunners.CurrentCell = gridRunners[4, e.RowIndex];
+                gridRunners.Rows[e.RowIndex].ErrorText = "didnt you forget something here?";
+            }
         }
     }
 }
