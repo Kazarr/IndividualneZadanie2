@@ -15,7 +15,18 @@ namespace FinishLine.Core
             Runners = new BindingList<Runner>();
         }
 
+        public Runner GetRunnerById(int id)
+        {
 
+            foreach (Runner r in Runners)
+            {
+                if (id == r.Id)
+                {
+                    return r;
+                }
+            }
+            return null;
+        }
 
         public void SaveRunners(int id, string name, Country country, int age, string sex)
         {

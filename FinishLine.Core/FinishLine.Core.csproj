@@ -55,6 +55,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Race.cs" />
+    <Compile Include="RaceResult.cs" />
     <Compile Include="RaceViewModel.cs" />
     <Compile Include="Repository\Load.cs" />
     <Compile Include="Repository\Save.cs" />

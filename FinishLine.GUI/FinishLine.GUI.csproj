@@ -94,6 +94,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\FinishLine.Core.Country.datasource" />
     <None Include="Properties\DataSources\FinishLine.Core.FinishedLap.datasource" />
+    <None Include="Properties\DataSources\FinishLine.Core.RaceResult.datasource" />
     <None Include="Properties\DataSources\FinishLine.Core.RaceViewModel.datasource" />
     <None Include="Properties\DataSources\FinishLine.Core.Runner.datasource" />
     <None Include="Properties\DataSources\FinishLine.Core.RunnerViewModel.datasource" />

@@ -71,5 +71,9 @@ namespace FinishLine.Core.Factory
         {
             return new FinishedLap(id);
         }
+        public static RaceResult CreateRaceResult(int id)
+        {
+            return new RaceResult(id);
+        }
     }
 }

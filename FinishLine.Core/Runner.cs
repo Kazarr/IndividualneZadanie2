@@ -34,6 +34,14 @@ namespace FinishLine.Core
         public Country Country { get => _country; set => _country = value; }
         public int Age { get => _age; set => _age = value; }
         public string Sex { get => _sex; set => _sex = value; }
+        public DateTime TotalTime { get; set; }
+
+
+
+
+
+
+
 
         public Runner()
         {

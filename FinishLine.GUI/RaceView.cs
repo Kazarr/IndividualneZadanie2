@@ -63,12 +63,15 @@ namespace FinishLine
             RaceViewModel = new RaceViewModel(RunnerViewModel);
 
             finishedLapBindingSource.DataSource = RaceViewModel.LapGridData;
+            resultBindingSource.DataSource = RaceViewModel.RaceGridData;
 
             RaceViewModel.Race.RaceDate = DateTime.Now;
-            //RaceViewModel.Race.LapDate = DateTime.Now;
+
+            RaceViewModel.Race.LapCount = GetIntInput(txtLapCount.Text);
+
             lblTime.Text = RaceViewModel.Race.RaceDate.ToShortDateString();
             lblTime.Visible = true;
-
+            RaceViewModel.RaceStart(RaceViewModel.Race.RaceDate);
             if (RunnerViewModel.Runners.Count > 0)
             {
                 txtLapCount.Enabled = false;
@@ -131,8 +134,8 @@ namespace FinishLine
         {
             int id = GetIntInput(txtRunnerNumber.Text);
             DateTime dateTime = DateTime.Now;
-            RaceViewModel.FinishLap(id, RaceViewModel.Race.LapDate);
-
+            //RunnerViewModel.Runners.Where(x => x.Id == id).First().TotalTime = dateTime;
+            RaceViewModel.FinishLap(id, dateTime);
         }
     }
 }
