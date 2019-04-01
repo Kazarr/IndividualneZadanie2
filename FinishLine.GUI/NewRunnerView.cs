@@ -14,9 +14,12 @@ namespace FinishLine
     public partial class NewRunnerView : Form
     {
         public RunnerViewModel RunnerViewModel { get; set; }
+        private bool _isEditing;
+        private int _gridIndex;
         public NewRunnerView(RunnerViewModel runnerViewModel)
         {
             InitializeComponent();
+            _isEditing = false;
             RunnerViewModel = runnerViewModel;
             countryBindingSource.DataSource = Core.Repository.Load.LoadOrderedCountries("countries.csv");
             cmbCounty.DataSource = countryBindingSource;
@@ -24,6 +27,8 @@ namespace FinishLine
         public NewRunnerView(RunnerViewModel runnerViewModel, int gridIndex)
         {
             InitializeComponent();
+            _isEditing = true;
+            _gridIndex = gridIndex;
             RunnerViewModel = runnerViewModel;
             
             countryBindingSource.DataSource = Core.Repository.Load.LoadOrderedCountries("countries.csv");
@@ -53,12 +58,26 @@ namespace FinishLine
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            RunnerViewModel.SaveRunners(
+            if (_isEditing)
+            {
+                RunnerViewModel.RemoveRunners(_gridIndex);
+                RunnerViewModel.SaveRunners(
                 GetIntInput(txtId.Text),
                 txtName.Text,
                 (Country)countryBindingSource.Current,
                 GetIntInput(txtAge.Text),
                 txtSex.Text);
+            }
+            else
+            {
+                RunnerViewModel.SaveRunners(
+                GetIntInput(txtId.Text),
+                txtName.Text,
+                (Country)countryBindingSource.Current,
+                GetIntInput(txtAge.Text),
+                txtSex.Text);
+            }
+            
             DialogResult = DialogResult.OK;
         }
         private int GetIntInput(string text)

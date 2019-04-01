@@ -13,7 +13,10 @@ namespace FinishLine.Core
 
         //public Stack<Runner> LapFinished { get; set; }
 
-        public RaceViewModel() { }
+        public RaceViewModel(RunnerViewModel runnerViewModel)
+        {
+            RunnerViewModel = runnerViewModel;
+        }
 
         public RaceViewModel(List<Runner> runners, int lapCount, int reward, DateTime date, int lapLenght)
         {

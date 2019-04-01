@@ -210,26 +210,27 @@
             // runnersToolStripMenuItem
             // 
             this.runnersToolStripMenuItem.Name = "runnersToolStripMenuItem";
-            this.runnersToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.runnersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.runnersToolStripMenuItem.Text = "Runners";
             this.runnersToolStripMenuItem.Click += new System.EventHandler(this.runnersToolStripMenuItem_Click);
             // 
             // loadToolStripMenuItem1
             // 
             this.loadToolStripMenuItem1.Name = "loadToolStripMenuItem1";
-            this.loadToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.loadToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.loadToolStripMenuItem1.Text = "Load";
+            this.loadToolStripMenuItem1.Click += new System.EventHandler(this.loadToolStripMenuItem1_Click);
             // 
             // saveAsToolStripMenuItem1
             // 
             this.saveAsToolStripMenuItem1.Name = "saveAsToolStripMenuItem1";
-            this.saveAsToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.saveAsToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.saveAsToolStripMenuItem1.Text = "Save as...";
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
@@ -327,7 +328,6 @@
             this.btnLapFinished.TabIndex = 15;
             this.btnLapFinished.Text = "Finish lap";
             this.btnLapFinished.UseVisualStyleBackColor = true;
-            //this.btnLapFinished.Click += new System.EventHandler(this.btnLapFinished_Click);
             // 
             // RaceView
             // 

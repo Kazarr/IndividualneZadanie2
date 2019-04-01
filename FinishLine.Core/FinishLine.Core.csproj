@@ -47,7 +47,6 @@
     <Compile Include="Country.cs" />
     <Compile Include="Factory\Factory.cs" />
     <Compile Include="Lap.cs" />
-    <Compile Include="NewRunnerViewModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

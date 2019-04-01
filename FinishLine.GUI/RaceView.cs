@@ -20,6 +20,7 @@ namespace FinishLine
             InitializeComponent();
             RunnerViewModel = new RunnerViewModel();
 
+
         }
 
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -61,7 +62,7 @@ namespace FinishLine
             DateTime dateTime = DateTime.Now;
             lblTime.Text = dateTime.ToLongTimeString();
             lblTime.Visible = true;
-            RaceViewModel = new RaceViewModel();
+            RaceViewModel = new RaceViewModel(RunnerViewModel);
             RaceViewModel.RaceStart(
                 RunnerViewModel.Runners.ToList(), 
                 GetIntInput(txtLapCount.Text),
@@ -92,46 +93,51 @@ namespace FinishLine
         {
             ValidateIntInput(sender, e);
         }
-        //private void btnLapFinished_Click(object sender, EventArgs e)
-        //{
-        //    TimeSpan racetime = DateTime.Now.Subtract(RaceViewModel.Race.RaceDate);
-        //    TimeSpan lapTime = DateTime.Now.Subtract(RaceViewModel.Race.LapDate);
-        //    int id = GetIntInput(txtRunnerNumber.Text);
+        private void btnLapFinished_Click(object sender, EventArgs e)
+        {
+            TimeSpan racetime = DateTime.Now.Subtract(RaceViewModel.Race.RaceDate);
+            TimeSpan lapTime = DateTime.Now.Subtract(RaceViewModel.Race.LapDate);
+            int id = GetIntInput(txtRunnerNumber.Text);
 
-        //    RaceViewModel.FinishLap(id);
-        //    //RaceViewModel.IsFinished(id, GetIntInput(txtLapCount.Text));
+            RaceViewModel.FinishLap(id);
+            //RaceViewModel.IsFinished(id, GetIntInput(txtLapCount.Text));
 
-        //    if (!RaceViewModel.IsFinished(id, GetIntInput(txtLapCount.Text)))
-        //    {
-        //        gridLapOverview.Rows.Add(
-        //            id,
-        //            RaceViewModel.Race.Runners[id].Position,
-        //            RaceViewModel.Race.Runners[id].Name,
-        //            RaceViewModel.Race.Runners[id].Country,
-        //            RaceViewModel.Race.Runners[id].FinishedLaps,
-        //            lapTime,
-        //            RaceViewModel.Race.LapLenght);
-        //    }
-        //    else
-        //    {
-        //        gridLapOverview.Rows.Add(
-        //            id,
-        //            RaceViewModel.Race.Runners[id].Position,
-        //            RaceViewModel.Race.Runners[id].Name,
-        //            RaceViewModel.Race.Runners[id].Country,
-        //            RaceViewModel.Race.Runners[id].FinishedLaps,
-        //            lapTime,
-        //            RaceViewModel.Race.LapLenght);
+            if (!RaceViewModel.IsFinished(id, GetIntInput(txtLapCount.Text)))
+            {
+                gridLapOverview.Rows.Add(
+                    id,
+                    RaceViewModel.Race.Runners[id].Position,
+                    RaceViewModel.Race.Runners[id].Name,
+                    RaceViewModel.Race.Runners[id].Country,
+                    RaceViewModel.Race.Runners[id].FinishedLaps,
+                    lapTime,
+                    RaceViewModel.Race.LapLenght);
+            }
+            else
+            {
+                gridLapOverview.Rows.Add(
+                    id,
+                    RaceViewModel.Race.Runners[id].Position,
+                    RaceViewModel.Race.Runners[id].Name,
+                    RaceViewModel.Race.Runners[id].Country,
+                    RaceViewModel.Race.Runners[id].FinishedLaps,
+                    lapTime,
+                    RaceViewModel.Race.LapLenght);
 
-        //        gridRaceOverview.Rows.Add(
-        //                id,
-        //                RaceViewModel.Race.Runners[id].Position,
-        //                RaceViewModel.Race.Runners[id].Name,
-        //                RaceViewModel.Race.Runners[id].Country,
-        //                1,
-        //                racetime,
-        //                RaceViewModel.Race.LapLenght);
-        //    }
-        //}
+                gridRaceOverview.Rows.Add(
+                        id,
+                        RaceViewModel.Race.Runners[id].Position,
+                        RaceViewModel.Race.Runners[id].Name,
+                        RaceViewModel.Race.Runners[id].Country,
+                        1,
+                        racetime,
+                        RaceViewModel.Race.LapLenght);
+            }
+        }
+
+        private void loadToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
