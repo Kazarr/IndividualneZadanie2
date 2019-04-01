@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NewRunnerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewRunnerView.Designer.cs">
+      <DependentUpon>NewRunnerView.cs</DependentUpon>
+    </Compile>
     <Compile Include="RaceView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,12 +72,9 @@
     <Compile Include="Subro.Controls.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="LapView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LapView.Designer.cs">
-      <DependentUpon>LapView.cs</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="NewRunnerView.resx">
+      <DependentUpon>NewRunnerView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RaceView.resx">
       <DependentUpon>RaceView.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,11 +91,10 @@
     <EmbeddedResource Include="RunnersView.resx">
       <DependentUpon>RunnersView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LapView.resx">
-      <DependentUpon>LapView.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\FinishLine.Core.Country.datasource" />
+    <None Include="Properties\DataSources\FinishLine.Core.Runner.datasource" />
+    <None Include="Properties\DataSources\FinishLine.Core.RunnerViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

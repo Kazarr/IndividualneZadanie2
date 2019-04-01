@@ -63,7 +63,7 @@ namespace FinishLine
             lblTime.Visible = true;
             RaceViewModel = new RaceViewModel();
             RaceViewModel.RaceStart(
-                RunnerViewModel.Runners, 
+                RunnerViewModel.Runners.ToList(), 
                 GetIntInput(txtLapCount.Text),
                 GetIntInput(txtReward.Text),
                 dateTime,
@@ -92,46 +92,46 @@ namespace FinishLine
         {
             ValidateIntInput(sender, e);
         }
-        private void btnLapFinished_Click(object sender, EventArgs e)
-        {
-            TimeSpan racetime = DateTime.Now.Subtract(RaceViewModel.Race.RaceDate);
-            TimeSpan lapTime = DateTime.Now.Subtract(RaceViewModel.Race.LapDate);
-            int id = GetIntInput(txtRunnerNumber.Text);
+        //private void btnLapFinished_Click(object sender, EventArgs e)
+        //{
+        //    TimeSpan racetime = DateTime.Now.Subtract(RaceViewModel.Race.RaceDate);
+        //    TimeSpan lapTime = DateTime.Now.Subtract(RaceViewModel.Race.LapDate);
+        //    int id = GetIntInput(txtRunnerNumber.Text);
 
-            RaceViewModel.FinishLap(id);
-            RaceViewModel.IsFinished(id, GetIntInput(txtLapCount.Text));
+        //    RaceViewModel.FinishLap(id);
+        //    //RaceViewModel.IsFinished(id, GetIntInput(txtLapCount.Text));
 
-            if (!RaceViewModel.IsFinished(id, GetIntInput(txtLapCount.Text)))
-            {
-                gridLapOverview.Rows.Add(
-                    id,
-                    RaceViewModel.Race.Runners[id].Position,
-                    RaceViewModel.Race.Runners[id].Name,
-                    RaceViewModel.Race.Runners[id].Country,
-                    RaceViewModel.Race.Runners[id].FinishedLaps,
-                    lapTime,
-                    RaceViewModel.Race.LapLenght);
-            }
-            else
-            {
-                gridLapOverview.Rows.Add(
-                    id,
-                    RaceViewModel.Race.Runners[id].Position,
-                    RaceViewModel.Race.Runners[id].Name,
-                    RaceViewModel.Race.Runners[id].Country,
-                    RaceViewModel.Race.Runners[id].FinishedLaps,
-                    lapTime,
-                    RaceViewModel.Race.LapLenght);
+        //    if (!RaceViewModel.IsFinished(id, GetIntInput(txtLapCount.Text)))
+        //    {
+        //        gridLapOverview.Rows.Add(
+        //            id,
+        //            RaceViewModel.Race.Runners[id].Position,
+        //            RaceViewModel.Race.Runners[id].Name,
+        //            RaceViewModel.Race.Runners[id].Country,
+        //            RaceViewModel.Race.Runners[id].FinishedLaps,
+        //            lapTime,
+        //            RaceViewModel.Race.LapLenght);
+        //    }
+        //    else
+        //    {
+        //        gridLapOverview.Rows.Add(
+        //            id,
+        //            RaceViewModel.Race.Runners[id].Position,
+        //            RaceViewModel.Race.Runners[id].Name,
+        //            RaceViewModel.Race.Runners[id].Country,
+        //            RaceViewModel.Race.Runners[id].FinishedLaps,
+        //            lapTime,
+        //            RaceViewModel.Race.LapLenght);
 
-                gridRaceOverview.Rows.Add(
-                        id,
-                        RaceViewModel.Race.Runners[id].Position,
-                        RaceViewModel.Race.Runners[id].Name,
-                        RaceViewModel.Race.Runners[id].Country,
-                        1,
-                        racetime,
-                        RaceViewModel.Race.LapLenght);
-            }
-        }
+        //        gridRaceOverview.Rows.Add(
+        //                id,
+        //                RaceViewModel.Race.Runners[id].Position,
+        //                RaceViewModel.Race.Runners[id].Name,
+        //                RaceViewModel.Race.Runners[id].Country,
+        //                1,
+        //                racetime,
+        //                RaceViewModel.Race.LapLenght);
+        //    }
+        //}
     }
 }

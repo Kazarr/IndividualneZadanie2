@@ -24,7 +24,10 @@ namespace FinishLine.Core
         }
 
 
-
+        public override string ToString()
+        {
+            return SlovakShortName;
+        }
 
     }
 }

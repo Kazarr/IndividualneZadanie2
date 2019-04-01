@@ -327,7 +327,7 @@
             this.btnLapFinished.TabIndex = 15;
             this.btnLapFinished.Text = "Finish lap";
             this.btnLapFinished.UseVisualStyleBackColor = true;
-            this.btnLapFinished.Click += new System.EventHandler(this.btnLapFinished_Click);
+            //this.btnLapFinished.Click += new System.EventHandler(this.btnLapFinished_Click);
             // 
             // RaceView
             // 

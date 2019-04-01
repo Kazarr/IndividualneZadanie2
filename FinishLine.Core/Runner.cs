@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FinishLine.Core
 {
-    public class Runner : INotifyPropertyChanged
+    public class Runner
     {
         private int _id;
         private string _name;
@@ -15,7 +15,6 @@ namespace FinishLine.Core
         private int _age;
         private string _sex;
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Runners position in current lap. 
