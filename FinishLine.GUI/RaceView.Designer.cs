@@ -226,6 +226,7 @@
             this.saveAsToolStripMenuItem1.Name = "saveAsToolStripMenuItem1";
             this.saveAsToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.saveAsToolStripMenuItem1.Text = "Save as...";
+            this.saveAsToolStripMenuItem1.Click += new System.EventHandler(this.saveAsToolStripMenuItem1_Click);
             // 
             // exitToolStripMenuItem1
             // 

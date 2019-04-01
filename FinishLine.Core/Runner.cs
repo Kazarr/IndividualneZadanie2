@@ -28,6 +28,7 @@ namespace FinishLine.Core
         /// Return current lap of runner;
         /// </summary>
         public int FinishedLaps { get; set; }
+
         public int Id { get => _id; set => _id = value; }
         public string Name { get => _name; set => _name = value; }
         public Country Country { get => _country; set => _country = value; }
@@ -75,6 +76,21 @@ namespace FinishLine.Core
             int ret = 0;
             Random r = new Random();
             return ret = r.Next(1, 1000);
+        }
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"{Id}");
+            sb.Append($"\t");
+            sb.Append($"{Name}");
+            sb.Append($"\t");
+            sb.Append($"{Country}");
+            sb.Append($"\t");
+            sb.Append($"{Age}");
+            sb.Append($"\t");
+            sb.Append($"{Sex}");
+            sb.AppendLine();
+            return sb.ToString();
         }
 
     }

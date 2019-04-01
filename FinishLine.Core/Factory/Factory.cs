@@ -42,6 +42,18 @@ namespace FinishLine.Core.Factory
             }
             return ret;
         }
+        public static Country CreateCountry(string englishShortName)
+        {
+            List<Country> countries = Repository.Load.LoadCoutries("countries.csv");
+            foreach(Country c in countries)
+            {
+                if (englishShortName.Equals(c.EnglishShortName))
+                {
+                    return c;
+                }
+            }
+            return null;
+        }
         public static Lap CreateLap(int lenght, DateTime date)
         {
             Lap ret = new Lap(lenght, date);

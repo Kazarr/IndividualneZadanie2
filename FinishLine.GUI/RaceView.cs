@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FinishLine.Core;
+using FinishLine.Core.Repository;
 
 namespace FinishLine
 {
@@ -137,7 +139,36 @@ namespace FinishLine
 
         private void loadToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
 
+            openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.RestoreDirectory = true;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                RunnerViewModel.Runners = Core.Repository.Load.LoadRunners(openFileDialog.FileName);
+            }
+
+            
+        }
+
+        private void saveAsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Stream myStream;
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            
+
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Save save = new Save(RaceViewModel,RunnerViewModel);
+                    
+                save.SaveRunners(saveFileDialog1.FileName);
+            }
         }
     }
 }
