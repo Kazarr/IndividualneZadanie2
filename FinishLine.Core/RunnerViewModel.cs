@@ -31,7 +31,6 @@ namespace FinishLine.Core
         public void SaveRunners(int id, string name, Country country, int age, string sex)
         {
             Runner runner = Factory.Factory.CreateRunner(id, name, country, age, sex);
-            //Runners.AddNew();
             Runners.Add(runner);
 
         }

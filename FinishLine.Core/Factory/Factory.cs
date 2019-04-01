@@ -62,11 +62,6 @@ namespace FinishLine.Core.Factory
             }
             return null;
         }
-        public static Lap CreateLap(int lenght, DateTime date)
-        {
-            Lap ret = new Lap(lenght, date);
-            return ret;
-        }
         public static FinishedLap CreateFinishedLap(int id)
         {
             return new FinishedLap(id);

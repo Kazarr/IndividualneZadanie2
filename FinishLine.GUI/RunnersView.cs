@@ -110,8 +110,6 @@ namespace FinishLine
                 RunnerViewModel.Runners = Core.Repository.Load.LoadRunners(openFileDialog.FileName);
             }
             gridRunners.DataSource = RunnerViewModel.Runners;
-            //gridRunners.Refresh();
-            //gridRunners.Update();
         }
 
         private void btnDone_Click(object sender, EventArgs e)

@@ -34,15 +34,6 @@ namespace FinishLine
             countryBindingSource.DataSource = Core.Repository.Load.LoadOrderedCountries("countries.csv");
             cmbCounty.DataSource = countryBindingSource;
             FillValues(gridIndex);
-            //txtId.Text = RunnerViewModel.Runners[gridIndex].Id.ToString();
-            //txtName.Text = RunnerViewModel.Runners[gridIndex].Name;
-            //cmbCounty.Text = RunnerViewModel.Runners[gridIndex].Country.ToString();
-            //txtAge.Text = RunnerViewModel.Runners[gridIndex].Age.ToString();
-            //txtSex.Text = RunnerViewModel.Runners[gridIndex].Sex;
-
-            //List<Country> comboboXDatasource = Core.Repository.Load.LoadOrderedCountries("countries.csv");
-            //List<string> comboboXDatasource = Core.Repository.Load.LoadEnglishShortName("countries.csv");
-            //cmbCounty.DataSource = comboboXDatasource;
 
         }
 

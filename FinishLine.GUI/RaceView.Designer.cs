@@ -64,6 +64,7 @@
             this.txtRunnerNumber = new System.Windows.Forms.TextBox();
             this.btnLapFinished = new System.Windows.Forms.Button();
             this.GrouperLap = new Subro.Controls.DataGridViewGrouper(this.components);
+            this.lblErrorId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridLapOverview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.finishedLapBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridRaceOverview)).BeginInit();
@@ -240,28 +241,28 @@
             // runnersToolStripMenuItem
             // 
             this.runnersToolStripMenuItem.Name = "runnersToolStripMenuItem";
-            this.runnersToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.runnersToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.runnersToolStripMenuItem.Text = "Runners";
             this.runnersToolStripMenuItem.Click += new System.EventHandler(this.runnersToolStripMenuItem_Click);
             // 
             // loadToolStripMenuItem1
             // 
             this.loadToolStripMenuItem1.Name = "loadToolStripMenuItem1";
-            this.loadToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
-            this.loadToolStripMenuItem1.Text = "Load";
+            this.loadToolStripMenuItem1.Size = new System.Drawing.Size(127, 22);
+            this.loadToolStripMenuItem1.Text = "Load stats";
             this.loadToolStripMenuItem1.Click += new System.EventHandler(this.loadToolStripMenuItem1_Click);
             // 
             // saveAsToolStripMenuItem1
             // 
             this.saveAsToolStripMenuItem1.Name = "saveAsToolStripMenuItem1";
-            this.saveAsToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.saveAsToolStripMenuItem1.Size = new System.Drawing.Size(127, 22);
             this.saveAsToolStripMenuItem1.Text = "Save as...";
             this.saveAsToolStripMenuItem1.Click += new System.EventHandler(this.saveAsToolStripMenuItem1_Click);
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(127, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
@@ -363,11 +364,22 @@
             this.btnLapFinished.UseVisualStyleBackColor = true;
             this.btnLapFinished.Click += new System.EventHandler(this.btnLapFinished_Click_1);
             // 
+            // lblErrorId
+            // 
+            this.lblErrorId.AutoSize = true;
+            this.lblErrorId.Location = new System.Drawing.Point(310, 121);
+            this.lblErrorId.Name = "lblErrorId";
+            this.lblErrorId.Size = new System.Drawing.Size(35, 13);
+            this.lblErrorId.TabIndex = 16;
+            this.lblErrorId.Text = "label1";
+            this.lblErrorId.Visible = false;
+            // 
             // RaceView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(939, 450);
+            this.Controls.Add(this.lblErrorId);
             this.Controls.Add(this.btnLapFinished);
             this.Controls.Add(this.txtRunnerNumber);
             this.Controls.Add(this.lblRunnerFinished);
@@ -418,12 +430,10 @@
         private System.Windows.Forms.Label lblRunnerFinished;
         private System.Windows.Forms.TextBox txtRunnerNumber;
         private System.Windows.Forms.Button btnLapFinished;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Lap;
         private Subro.Controls.DataGridViewGrouper GrouperLap;
         private System.Windows.Forms.BindingSource finishedLapBindingSource;
         private System.Windows.Forms.BindingSource resultBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn positionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn countryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn finishedLapsDataGridViewTextBoxColumn;
@@ -435,6 +445,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn bestLapDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn raceTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Label lblErrorId;
     }
 }
 
