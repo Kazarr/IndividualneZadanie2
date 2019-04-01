@@ -67,15 +67,6 @@
             this.gridRunners.ReadOnly = true;
             this.gridRunners.Size = new System.Drawing.Size(558, 372);
             this.gridRunners.TabIndex = 0;
-            this.gridRunners.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridRunners_CellEndEdit);
-            this.gridRunners.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridRunners_CellEnter);
-            this.gridRunners.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.gridRunners_CellValidating);
-            this.gridRunners.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.gridRunners_DataError);
-            this.gridRunners.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridRunners_RowLeave);
-            this.gridRunners.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.gridRunners_RowsRemoved);
-            this.gridRunners.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridRunners_RowValidated);
-            this.gridRunners.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.gridRunners_RowValidating);
-            this.gridRunners.Click += new System.EventHandler(this.gridRunners_Click);
             // 
             // btnSave
             // 
@@ -130,7 +121,6 @@
             // countryBindingSource
             // 
             this.countryBindingSource.DataSource = typeof(FinishLine.Core.Country);
-            this.countryBindingSource.CurrentChanged += new System.EventHandler(this.countryBindingSource_CurrentChanged);
             // 
             // runnerViewModelBindingSource
             // 

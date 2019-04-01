@@ -22,7 +22,6 @@ namespace FinishLine
             InitializeComponent();
             RunnerViewModel = new RunnerViewModel();
 
-
         }
 
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -61,16 +60,15 @@ namespace FinishLine
         }
         private void btnStart_Click(object sender, EventArgs e)
         {
-            DateTime dateTime = DateTime.Now;
-            lblTime.Text = dateTime.ToLongTimeString();
-            lblTime.Visible = true;
             RaceViewModel = new RaceViewModel(RunnerViewModel);
-            RaceViewModel.RaceStart(
-                RunnerViewModel.Runners.ToList(), 
-                GetIntInput(txtLapCount.Text),
-                GetIntInput(txtReward.Text),
-                dateTime,
-                GetIntInput(txtLapLenght.Text));
+
+            finishedLapBindingSource.DataSource = RaceViewModel.LapGridData;
+
+            RaceViewModel.Race.RaceDate = DateTime.Now;
+            //RaceViewModel.Race.LapDate = DateTime.Now;
+            lblTime.Text = RaceViewModel.Race.RaceDate.ToShortDateString();
+            lblTime.Visible = true;
+
             if (RunnerViewModel.Runners.Count > 0)
             {
                 txtLapCount.Enabled = false;
@@ -95,48 +93,6 @@ namespace FinishLine
         {
             ValidateIntInput(sender, e);
         }
-        private void btnLapFinished_Click(object sender, EventArgs e)
-        {
-            TimeSpan racetime = DateTime.Now.Subtract(RaceViewModel.Race.RaceDate);
-            TimeSpan lapTime = DateTime.Now.Subtract(RaceViewModel.Race.LapDate);
-            int id = GetIntInput(txtRunnerNumber.Text);
-
-            RaceViewModel.FinishLap(id);
-            //RaceViewModel.IsFinished(id, GetIntInput(txtLapCount.Text));
-
-            if (!RaceViewModel.IsFinished(id, GetIntInput(txtLapCount.Text)))
-            {
-                gridLapOverview.Rows.Add(
-                    id,
-                    RaceViewModel.Race.Runners[id].Position,
-                    RaceViewModel.Race.Runners[id].Name,
-                    RaceViewModel.Race.Runners[id].Country,
-                    RaceViewModel.Race.Runners[id].FinishedLaps,
-                    lapTime,
-                    RaceViewModel.Race.LapLenght);
-            }
-            else
-            {
-                gridLapOverview.Rows.Add(
-                    id,
-                    RaceViewModel.Race.Runners[id].Position,
-                    RaceViewModel.Race.Runners[id].Name,
-                    RaceViewModel.Race.Runners[id].Country,
-                    RaceViewModel.Race.Runners[id].FinishedLaps,
-                    lapTime,
-                    RaceViewModel.Race.LapLenght);
-
-                gridRaceOverview.Rows.Add(
-                        id,
-                        RaceViewModel.Race.Runners[id].Position,
-                        RaceViewModel.Race.Runners[id].Name,
-                        RaceViewModel.Race.Runners[id].Country,
-                        1,
-                        racetime,
-                        RaceViewModel.Race.LapLenght);
-            }
-        }
-
         private void loadToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -169,6 +125,14 @@ namespace FinishLine
                     
                 save.SaveRunners(saveFileDialog1.FileName);
             }
+        }
+
+        private void btnLapFinished_Click_1(object sender, EventArgs e)
+        {
+            int id = GetIntInput(txtRunnerNumber.Text);
+            DateTime dateTime = DateTime.Now;
+            RaceViewModel.FinishLap(id, RaceViewModel.Race.LapDate);
+
         }
     }
 }

@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Country.cs" />
     <Compile Include="Factory\Factory.cs" />
+    <Compile Include="FinishedLap.cs" />
     <Compile Include="Lap.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

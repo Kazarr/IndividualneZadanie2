@@ -23,6 +23,14 @@ namespace FinishLine.Core.Factory
             Runner ret = new Runner();
             return ret;
         }
+        public static Race CreateRace(int lapCount, int lapLenght, int reward)
+        {
+            return new Race(lapCount, lapLenght, reward);
+        }
+        public static Race CreateRace()
+        {
+            return new Race();
+        }
         public static Race CreateRace(List<Runner> runners, int lapCount, int reward)
         {
             Race ret = new Race(runners, lapCount, reward);
@@ -58,6 +66,10 @@ namespace FinishLine.Core.Factory
         {
             Lap ret = new Lap(lenght, date);
             return ret;
+        }
+        public static FinishedLap CreateFinishedLap(int id)
+        {
+            return new FinishedLap(id);
         }
     }
 }

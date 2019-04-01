@@ -30,12 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gridLapOverview = new System.Windows.Forms.DataGridView();
-            this.RunnerId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RunnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RunnerCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FinishedLaps = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LapTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.positionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finishedLapsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finishedLapTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finishedLapBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridRaceOverview = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FinalPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +63,7 @@
             this.btnLapFinished = new System.Windows.Forms.Button();
             this.GrouperLap = new Subro.Controls.DataGridViewGrouper(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridLapOverview)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.finishedLapBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridRaceOverview)).BeginInit();
             this.menuStripFile.SuspendLayout();
             this.SuspendLayout();
@@ -72,59 +74,67 @@
             this.gridLapOverview.AllowUserToDeleteRows = false;
             this.gridLapOverview.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.gridLapOverview.AutoGenerateColumns = false;
             this.gridLapOverview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridLapOverview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.RunnerId,
-            this.Position,
-            this.RunnerName,
-            this.RunnerCountry,
-            this.FinishedLaps,
-            this.LapTime});
+            this.idDataGridViewTextBoxColumn,
+            this.positionDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.countryDataGridViewTextBoxColumn,
+            this.finishedLapsDataGridViewTextBoxColumn,
+            this.finishedLapTimeDataGridViewTextBoxColumn});
+            this.gridLapOverview.DataSource = this.finishedLapBindingSource;
             this.gridLapOverview.Location = new System.Drawing.Point(14, 166);
             this.gridLapOverview.Name = "gridLapOverview";
             this.gridLapOverview.ReadOnly = true;
             this.gridLapOverview.Size = new System.Drawing.Size(421, 272);
             this.gridLapOverview.TabIndex = 1;
             // 
-            // RunnerId
+            // idDataGridViewTextBoxColumn
             // 
-            this.RunnerId.HeaderText = "Runner number";
-            this.RunnerId.Name = "RunnerId";
-            this.RunnerId.ReadOnly = true;
-            this.RunnerId.Width = 33;
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // Position
+            // positionDataGridViewTextBoxColumn
             // 
-            this.Position.HeaderText = "Position";
-            this.Position.Name = "Position";
-            this.Position.ReadOnly = true;
-            this.Position.Width = 25;
+            this.positionDataGridViewTextBoxColumn.DataPropertyName = "Position";
+            this.positionDataGridViewTextBoxColumn.HeaderText = "Position";
+            this.positionDataGridViewTextBoxColumn.Name = "positionDataGridViewTextBoxColumn";
+            this.positionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // RunnerName
+            // nameDataGridViewTextBoxColumn
             // 
-            this.RunnerName.HeaderText = "Runner name";
-            this.RunnerName.Name = "RunnerName";
-            this.RunnerName.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // RunnerCountry
+            // countryDataGridViewTextBoxColumn
             // 
-            this.RunnerCountry.HeaderText = "Runner country";
-            this.RunnerCountry.Name = "RunnerCountry";
-            this.RunnerCountry.ReadOnly = true;
-            this.RunnerCountry.Width = 50;
+            this.countryDataGridViewTextBoxColumn.DataPropertyName = "Country";
+            this.countryDataGridViewTextBoxColumn.HeaderText = "Country";
+            this.countryDataGridViewTextBoxColumn.Name = "countryDataGridViewTextBoxColumn";
+            this.countryDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // FinishedLaps
+            // finishedLapsDataGridViewTextBoxColumn
             // 
-            this.FinishedLaps.HeaderText = "FinishedLaps";
-            this.FinishedLaps.Name = "FinishedLaps";
-            this.FinishedLaps.ReadOnly = true;
-            this.FinishedLaps.Width = 50;
+            this.finishedLapsDataGridViewTextBoxColumn.DataPropertyName = "FinishedLaps";
+            this.finishedLapsDataGridViewTextBoxColumn.HeaderText = "FinishedLaps";
+            this.finishedLapsDataGridViewTextBoxColumn.Name = "finishedLapsDataGridViewTextBoxColumn";
+            this.finishedLapsDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // LapTime
+            // finishedLapTimeDataGridViewTextBoxColumn
             // 
-            this.LapTime.HeaderText = "FinishedLaps time";
-            this.LapTime.Name = "LapTime";
-            this.LapTime.ReadOnly = true;
+            this.finishedLapTimeDataGridViewTextBoxColumn.DataPropertyName = "FinishedLapTime";
+            this.finishedLapTimeDataGridViewTextBoxColumn.HeaderText = "FinishedLapTime";
+            this.finishedLapTimeDataGridViewTextBoxColumn.Name = "finishedLapTimeDataGridViewTextBoxColumn";
+            this.finishedLapTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // finishedLapBindingSource
+            // 
+            this.finishedLapBindingSource.DataSource = typeof(FinishLine.Core.FinishedLap);
             // 
             // gridRaceOverview
             // 
@@ -210,28 +220,28 @@
             // runnersToolStripMenuItem
             // 
             this.runnersToolStripMenuItem.Name = "runnersToolStripMenuItem";
-            this.runnersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.runnersToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.runnersToolStripMenuItem.Text = "Runners";
             this.runnersToolStripMenuItem.Click += new System.EventHandler(this.runnersToolStripMenuItem_Click);
             // 
             // loadToolStripMenuItem1
             // 
             this.loadToolStripMenuItem1.Name = "loadToolStripMenuItem1";
-            this.loadToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.loadToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.loadToolStripMenuItem1.Text = "Load";
             this.loadToolStripMenuItem1.Click += new System.EventHandler(this.loadToolStripMenuItem1_Click);
             // 
             // saveAsToolStripMenuItem1
             // 
             this.saveAsToolStripMenuItem1.Name = "saveAsToolStripMenuItem1";
-            this.saveAsToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.saveAsToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.saveAsToolStripMenuItem1.Text = "Save as...";
             this.saveAsToolStripMenuItem1.Click += new System.EventHandler(this.saveAsToolStripMenuItem1_Click);
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
@@ -329,6 +339,7 @@
             this.btnLapFinished.TabIndex = 15;
             this.btnLapFinished.Text = "Finish lap";
             this.btnLapFinished.UseVisualStyleBackColor = true;
+            this.btnLapFinished.Click += new System.EventHandler(this.btnLapFinished_Click_1);
             // 
             // RaceView
             // 
@@ -354,6 +365,7 @@
             this.Name = "RaceView";
             this.Text = "RaceView";
             ((System.ComponentModel.ISupportInitialize)(this.gridLapOverview)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.finishedLapBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridRaceOverview)).EndInit();
             this.menuStripFile.ResumeLayout(false);
             this.menuStripFile.PerformLayout();
@@ -388,14 +400,15 @@
         private System.Windows.Forms.Label lblRunnerFinished;
         private System.Windows.Forms.TextBox txtRunnerNumber;
         private System.Windows.Forms.Button btnLapFinished;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RunnerId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Position;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RunnerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RunnerCountry;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lap;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LapTime;
         private Subro.Controls.DataGridViewGrouper GrouperLap;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FinishedLaps;
+        private System.Windows.Forms.BindingSource finishedLapBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn positionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn finishedLapsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn finishedLapTimeDataGridViewTextBoxColumn;
     }
 }
 

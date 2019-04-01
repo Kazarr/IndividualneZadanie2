@@ -26,9 +26,10 @@ namespace FinishLine.Core
         {
         }
 
-        public Race(int lapCount, int reward)
+        public Race(int lapCount,int lapLenght, int reward)
         {
             LapCount = lapCount;
+            LapLenght = lapLenght;
             Reward = reward;
         }
 
