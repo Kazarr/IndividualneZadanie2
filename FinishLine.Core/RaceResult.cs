@@ -32,5 +32,23 @@ namespace FinishLine.Core
         {
 
         }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"{Id}");
+            sb.Append($"\t");
+            sb.Append($"{Position}");
+            sb.Append($"\t");
+            sb.Append($"{Name}");
+            sb.Append($"\t");
+            sb.Append($"{BestLap}");
+            sb.Append($"\t");
+            sb.Append($"{RaceTime}");
+            sb.Append($"\t");
+            sb.Append($"{AverageSpeed}");
+            sb.AppendLine();
+            return sb.ToString();
+        }
     }
 }

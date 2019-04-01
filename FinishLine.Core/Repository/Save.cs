@@ -29,9 +29,17 @@ namespace FinishLine.Core.Repository
                 File.AppendAllText(path, r.ToString());
             }
         }
-        public void SaveRace()
-        { 
-            
+        public void SaveRace(string path)
+        {
+            foreach(FinishedLap fl in RaceViewModel.LapGridData)
+            {
+                File.AppendAllText(path, fl.ToString());
+            }
+            File.AppendAllText(path, ";");
+            foreach(RaceResult rc in RaceViewModel.RaceGridData)
+            {
+                File.AppendAllText(path, rc.ToString());
+            }
         }
         
     }

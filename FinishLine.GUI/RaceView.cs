@@ -127,7 +127,7 @@ namespace FinishLine
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             
 
-            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog1.Filter = "race files (*.race)|*.race";
             saveFileDialog1.FilterIndex = 2;
             saveFileDialog1.RestoreDirectory = true;
 
@@ -135,7 +135,7 @@ namespace FinishLine
             {
                 Save save = new Save(RaceViewModel,RunnerViewModel);
                     
-                save.SaveRunners(saveFileDialog1.FileName);
+                save.SaveRace(saveFileDialog1.FileName);
             }
         }
 
