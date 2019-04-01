@@ -78,6 +78,10 @@ namespace FinishLine
             finishedLapBindingSource.DataSource = RaceViewModel.LapGridData;
             resultBindingSource.DataSource = RaceViewModel.RaceGridData;
 
+            //dataGridViewGrouper1.SetGroupOn(gridLapOverview.Columns[3]);
+            //dataGridViewGrouper1.
+            //dataGridViewGrouper1.SetGroupOn(gridLapOverview.Columns["FinishedLaps"]);
+
             RaceViewModel.Race.RaceDate = DateTime.Now;
 
             RaceViewModel.Race.LapCount = GetIntInput(txtLapCount.Text);

@@ -43,6 +43,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCanel = new System.Windows.Forms.Button();
             this.groupingSource1 = new Subro.Controls.GroupingSource();
+            this.lblErrorId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupingSource1)).BeginInit();
             this.SuspendLayout();
@@ -159,11 +160,22 @@
             this.btnCanel.UseVisualStyleBackColor = true;
             this.btnCanel.Click += new System.EventHandler(this.btnCanel_Click);
             // 
+            // lblErrorId
+            // 
+            this.lblErrorId.AutoSize = true;
+            this.lblErrorId.Location = new System.Drawing.Point(121, 29);
+            this.lblErrorId.Name = "lblErrorId";
+            this.lblErrorId.Size = new System.Drawing.Size(35, 13);
+            this.lblErrorId.TabIndex = 12;
+            this.lblErrorId.Text = "label1";
+            this.lblErrorId.Visible = false;
+            // 
             // NewRunnerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(240, 274);
+            this.Controls.Add(this.lblErrorId);
             this.Controls.Add(this.btnCanel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtSex);
@@ -201,5 +213,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCanel;
         private Subro.Controls.GroupingSource groupingSource1;
+        private System.Windows.Forms.Label lblErrorId;
     }
 }

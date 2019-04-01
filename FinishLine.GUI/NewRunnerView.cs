@@ -49,6 +49,7 @@ namespace FinishLine
         private void FillValues(int gridIndex)
         {
             txtId.Text = RunnerViewModel.Runners[gridIndex].Id.ToString();
+            txtId.Enabled = false;
             txtName.Text = RunnerViewModel.Runners[gridIndex].Name;
             cmbCounty.SelectedValue = RunnerViewModel.Runners[gridIndex].Country.EnglishShortName;
             txtAge.Text = RunnerViewModel.Runners[gridIndex].Age.ToString();
@@ -106,13 +107,52 @@ namespace FinishLine
             }
             return false;
         }
+        private Runner FindRunnerById(int id)
+        {
+            foreach(Runner r in RunnerViewModel.Runners)
+            {
+                if(r.Id == id)
+                {
+                    return r;
+                }
+            }
+            return null;
+        }
 
         private void txtId_Validating(object sender, CancelEventArgs e)
         {
-            if (!ValidateInt(txtId.Text))
+            if (!_isEditing)
             {
-                e.Cancel = true;
+                if (FindRunnerById(GetIntInput(txtId.Text)) != null)
+                {
+                    lblErrorId.Text = "You already have that id";
+                    lblErrorId.Visible = true;
+                    e.Cancel = true;
+                }
+                else
+                {
+                    if (!ValidateInt(txtId.Text))
+                    {
+                        lblErrorId.Text = "Thisi is not a number";
+                        lblErrorId.Visible = true;
+                        e.Cancel = true;
+                    }
+
+                }
             }
+            else
+            {
+                if (!ValidateInt(txtId.Text))
+                {
+
+                    lblErrorId.Text = "Thisi is not a number";
+                    lblErrorId.Visible = true;
+                    e.Cancel = true;
+                }
+            }
+            
+
+
         }
 
         private void txtAge_Validating(object sender, CancelEventArgs e)
