@@ -18,6 +18,10 @@ namespace FinishLine.Core.Repository
             RaceViewModel = raceViewModel;
             RunnerViewModel = runnerViewModel;
         }
+        public Save(RunnerViewModel runnerViewModel)
+        {
+            RunnerViewModel = runnerViewModel;
+        }
         public void SaveRunners(string path)
         {
             foreach (Runner r in RunnerViewModel.Runners)

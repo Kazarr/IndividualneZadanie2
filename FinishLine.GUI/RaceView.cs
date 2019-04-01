@@ -60,6 +60,19 @@ namespace FinishLine
         }
         private void btnStart_Click(object sender, EventArgs e)
         {
+            if (RunnerViewModel.Runners.Count > 0)
+            {
+                txtLapCount.Enabled = false;
+                txtLapLenght.Enabled = false;
+                txtReward.Enabled = false;
+                txtRunnerNumber.Enabled = true;
+                btnLapFinished.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("you dont have runners");
+                return;
+            }
             RaceViewModel = new RaceViewModel(RunnerViewModel);
 
             finishedLapBindingSource.DataSource = RaceViewModel.LapGridData;
@@ -68,16 +81,12 @@ namespace FinishLine
             RaceViewModel.Race.RaceDate = DateTime.Now;
 
             RaceViewModel.Race.LapCount = GetIntInput(txtLapCount.Text);
+            RaceViewModel.Race.LapLenght = GetIntInput(txtLapLenght.Text);
 
             lblTime.Text = RaceViewModel.Race.RaceDate.ToShortDateString();
             lblTime.Visible = true;
             RaceViewModel.RaceStart(RaceViewModel.Race.RaceDate);
-            if (RunnerViewModel.Runners.Count > 0)
-            {
-                txtLapCount.Enabled = false;
-                txtLapLenght.Enabled = false;
-                txtReward.Enabled = false;
-            }
+            
         }
 
         private string GetStringFromLabel(Label label)
@@ -96,21 +105,21 @@ namespace FinishLine
         {
             ValidateIntInput(sender, e);
         }
-        private void loadToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
+        //private void loadToolStripMenuItem1_Click(object sender, EventArgs e)
+        //{
+        //    OpenFileDialog openFileDialog = new OpenFileDialog();
 
-            openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-            openFileDialog.FilterIndex = 2;
-            openFileDialog.RestoreDirectory = true;
+        //    openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+        //    openFileDialog.FilterIndex = 2;
+        //    openFileDialog.RestoreDirectory = true;
 
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                RunnerViewModel.Runners = Core.Repository.Load.LoadRunners(openFileDialog.FileName);
-            }
+        //    if (openFileDialog.ShowDialog() == DialogResult.OK)
+        //    {
+        //        RunnerViewModel.Runners = Core.Repository.Load.LoadRunners(openFileDialog.FileName);
+        //    }
 
             
-        }
+        //}
 
         private void saveAsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -132,10 +141,23 @@ namespace FinishLine
 
         private void btnLapFinished_Click_1(object sender, EventArgs e)
         {
-            int id = GetIntInput(txtRunnerNumber.Text);
-            DateTime dateTime = DateTime.Now;
-            //RunnerViewModel.Runners.Where(x => x.Id == id).First().TotalTime = dateTime;
-            RaceViewModel.FinishLap(id, dateTime);
+            if(RaceViewModel.RaceGridData.Count == GetIntInput(txtReward.Text))
+            {
+                btnLapFinished.Enabled = false;
+            }
+            else
+            {
+                int id = GetIntInput(txtRunnerNumber.Text);
+                DateTime dateTime = DateTime.Now;
+                //RunnerViewModel.Runners.Where(x => x.Id == id).First().TotalTime = dateTime;
+                RaceViewModel.FinishLap(id, dateTime);
+            }
+            
+        }
+
+        private void loadToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

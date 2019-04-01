@@ -157,6 +157,7 @@
             this.btnCanel.TabIndex = 11;
             this.btnCanel.Text = "Cancel";
             this.btnCanel.UseVisualStyleBackColor = true;
+            this.btnCanel.Click += new System.EventHandler(this.btnCanel_Click);
             // 
             // NewRunnerView
             // 

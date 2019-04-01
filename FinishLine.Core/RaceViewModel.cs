@@ -106,17 +106,24 @@ namespace FinishLine.Core
             runner.FinishedLaps++;
             finishedLap.FinishedLapTime = dateTime - runner.TotalTime;
             runner.TotalTime = dateTime;
+            finishedLap.AverageSpeed = Race.LapLenght / finishedLap.FinishedLapTime.TotalHours;
             
             Race.LapDate = dateTime;
             LapGridData.Add(finishedLap);
             if(runner.FinishedLaps == Race.LapCount)
             {
                 TimeSpan ts = TimeSpan.MaxValue;
-                foreach(FinishedLap fl in LapGridData)
+                double average = 0;
+                for(int i = 0; i < LapGridData.Count; i++)
                 {
-                    if (ts > fl.FinishedLapTime)
+                    if (ts > LapGridData[i].FinishedLapTime)
                     {
-                        ts = fl.FinishedLapTime;
+                        ts = LapGridData[i].FinishedLapTime;
+                    }
+                    average += LapGridData[i].AverageSpeed;
+                    if (LapGridData.Count == i)
+                    {
+                        average = average / i;
                     }
                 }
                 RaceResult raceResult = Factory.Factory.CreateRaceResult(id);
@@ -124,6 +131,7 @@ namespace FinishLine.Core
                 raceResult.Position = RaceGridData.Count + 1;
                 raceResult.BestLap = ts;
                 raceResult.RaceTime = dateTime - Race.RaceDate;
+                raceResult.AverageSpeed = average;
                 RaceGridData.Add(raceResult);
             }
         }

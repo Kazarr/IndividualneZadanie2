@@ -26,7 +26,7 @@ namespace FinishLine.Core
 
         public override string ToString()
         {
-            return SlovakShortName;
+            return EnglishShortName;
         }
 
     }

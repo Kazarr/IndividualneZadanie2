@@ -138,5 +138,10 @@ namespace FinishLine
                 e.Cancel = true;
             }
         }
+
+        private void btnCanel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

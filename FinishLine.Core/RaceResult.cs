@@ -13,6 +13,7 @@ namespace FinishLine.Core
         public string Name { get; set; }
         public TimeSpan BestLap { get; set; }
         public TimeSpan RaceTime { get; set; }
+        public double AverageSpeed { get; set; }
 
 
         public RaceResult(int id, int position, string name, TimeSpan bestLap, TimeSpan raceTime)

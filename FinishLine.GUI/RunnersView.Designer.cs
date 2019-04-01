@@ -30,22 +30,24 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gridRunners = new System.Windows.Forms.DataGridView();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.countryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.runnerViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.runnerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnLoad = new System.Windows.Forms.Button();
+            this.runnerViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.countryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.runnerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnDone = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridRunners)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.runnerViewModelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.runnerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,9 +70,46 @@
             this.gridRunners.Size = new System.Drawing.Size(558, 372);
             this.gridRunners.TabIndex = 0;
             // 
+            // colID
+            // 
+            this.colID.DataPropertyName = "Id";
+            this.colID.HeaderText = "Id";
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
+            // 
+            // colName
+            // 
+            this.colName.DataPropertyName = "Name";
+            this.colName.HeaderText = "Name";
+            this.colName.Name = "colName";
+            this.colName.ReadOnly = true;
+            // 
+            // colCountry
+            // 
+            this.colCountry.DataPropertyName = "Country";
+            this.colCountry.HeaderText = "Country";
+            this.colCountry.Name = "colCountry";
+            this.colCountry.ReadOnly = true;
+            this.colCountry.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colCountry.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // colAge
+            // 
+            this.colAge.DataPropertyName = "Age";
+            this.colAge.HeaderText = "Age";
+            this.colAge.Name = "colAge";
+            this.colAge.ReadOnly = true;
+            // 
+            // colSex
+            // 
+            this.colSex.DataPropertyName = "Sex";
+            this.colSex.HeaderText = "Sex";
+            this.colSex.Name = "colSex";
+            this.colSex.ReadOnly = true;
+            // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(577, 415);
+            this.btnSave.Location = new System.Drawing.Point(577, 386);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 23);
             this.btnSave.TabIndex = 1;
@@ -118,60 +157,45 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // countryBindingSource
+            // btnLoad
             // 
-            this.countryBindingSource.DataSource = typeof(FinishLine.Core.Country);
+            this.btnLoad.Location = new System.Drawing.Point(577, 357);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(94, 23);
+            this.btnLoad.TabIndex = 6;
+            this.btnLoad.Text = "Load";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // runnerViewModelBindingSource
             // 
             this.runnerViewModelBindingSource.DataSource = typeof(FinishLine.Core.RunnerViewModel);
             // 
+            // countryBindingSource
+            // 
+            this.countryBindingSource.DataSource = typeof(FinishLine.Core.Country);
+            // 
             // runnerBindingSource
             // 
             this.runnerBindingSource.DataSource = typeof(FinishLine.Core.Runner);
             // 
-            // colID
+            // btnDone
             // 
-            this.colID.DataPropertyName = "Id";
-            this.colID.HeaderText = "Id";
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            // 
-            // colName
-            // 
-            this.colName.DataPropertyName = "Name";
-            this.colName.HeaderText = "Name";
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
-            // 
-            // colCountry
-            // 
-            this.colCountry.DataPropertyName = "Country";
-            this.colCountry.HeaderText = "Country";
-            this.colCountry.Name = "colCountry";
-            this.colCountry.ReadOnly = true;
-            this.colCountry.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colCountry.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // colAge
-            // 
-            this.colAge.DataPropertyName = "Age";
-            this.colAge.HeaderText = "Age";
-            this.colAge.Name = "colAge";
-            this.colAge.ReadOnly = true;
-            // 
-            // colSex
-            // 
-            this.colSex.DataPropertyName = "Sex";
-            this.colSex.HeaderText = "Sex";
-            this.colSex.Name = "colSex";
-            this.colSex.ReadOnly = true;
+            this.btnDone.Location = new System.Drawing.Point(577, 415);
+            this.btnDone.Name = "btnDone";
+            this.btnDone.Size = new System.Drawing.Size(94, 23);
+            this.btnDone.TabIndex = 7;
+            this.btnDone.Text = "Done";
+            this.btnDone.UseVisualStyleBackColor = true;
+            this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
             // 
             // RunnersView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(692, 450);
+            this.Controls.Add(this.btnDone);
+            this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnNew);
@@ -181,8 +205,8 @@
             this.Name = "RunnersView";
             this.Text = "Runners";
             ((System.ComponentModel.ISupportInitialize)(this.gridRunners)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.runnerViewModelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.runnerBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -204,5 +228,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCountry;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAge;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSex;
+        private System.Windows.Forms.Button btnLoad;
+        private System.Windows.Forms.Button btnDone;
     }
 }
